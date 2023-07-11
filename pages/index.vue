@@ -14,9 +14,10 @@
           <h2>About</h2>
         </div>
         <div style="margin-top: 50px">
-          <video controls autoplay loop width="100%" id="video" ref="video">
+          <!-- muted是否静音 -->
+          <video autoplay loop :muted="true" width="100%" id="video" ref="video">
             <source
-              src="https://allen2023-06-09.oss-cn-beijing.aliyuncs.com/index-video.mp4?Expires=1688759653&OSSAccessKeyId=TMP.3KdenQ4HvzEjK3z4cMbYHbLXjW2J8Kj5f8SpytjL83xJDa2kNLiWYmc8hRQeJfTWVhoaKVHbA79hNAcbnPLBk2BzfttDJ5&Signature=kutbWyh4m5Djyv3YpLz8WPj6Puo%3D"
+              src="https://sekiro-1312712349.cos.ap-shanghai.myqcloud.com/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4"
             />
           </video>
         </div>
@@ -280,17 +281,20 @@ const solutionList = [
   {
     img: "solution-second",
     title: "分析问题",
-    data: "建模：算法推演",
+    title2: "建模：",
+    data: "算法推演",
   },
   {
     img: "solution-third",
     title: "解决问题",
-    data: "行为：协同处置",
+    title2: "行为：",
+    data: "协同处置",
   },
   {
     img: "solution-fourth",
     title: "复盘问题",
-    data: "重构：IT/OT/MR低代码互联",
+    title2: "重构：",
+    data: "IT/OT/MR低代码互联",
   },
 ];
 const ourServicesList = [
@@ -382,6 +386,29 @@ const ourServicesList = [
 const projectList = [
   {
     key: "1",
+    tabs: "知识图谱",
+    title: "某水厂合规方案咨询优化",
+    card: [
+      {
+        title: "背景：",
+        value: `水厂大部分检修维流程项目使用外包的方式，对工作人员的安全保障手段目前采用人工安全审核与安全作业指导的方式。`,
+      },
+      {
+        title: "痛点：",
+        value: `经过咨询发现，目前水厂对有限空间下的作业以及其他特种作业基本没有智能化的监察手段，在发生危险的第一时间没有及时的解决办法。`,
+      },
+      {
+        title: "方案：",
+        value: `采用监理机器人伴随的方案，将合规与智能化结合，使用深度学习与知识图谱等手段，智能化作业过程，随时溯源。`,
+      },
+      {
+        title: "益处：",
+        value: `智能化系统，提高工作人员安全性，避免造成人生安全损失，提高了检维修效率。`,
+      },
+    ],
+  },
+  {
+    key: "2",
     tabs: "远程医疗",
     title: "上海120院前救治",
     card: [
@@ -404,76 +431,7 @@ const projectList = [
     ],
   },
   {
-    key: "2",
-    tabs: "远程协助",
-    title: "米其林",
-    card: [
-      {
-        title: "背景：",
-        value: `工业轮胎使用环境多是交通不便的山区、矿区等野外环境、技术维修复杂，需要专业技工维修。`,
-      },
-      {
-        title: "痛点：",
-        value: `专业技工无法及时赶到用户现场，采用手机互动时现场前端无法同步看到手机画面。`,
-      },
-      {
-        title: "方案：",
-        value: `低代码接入售后服务平台，采用远程协助平台，可随时确保异地用户得到准确服务。`,
-      },
-      {
-        title: "益处：",
-        value: `大量节约企业的服务成本、提高了用户服务满意度。`,
-      },
-    ],
-  },
-  {
     key: "3",
-    tabs: "数字孪生",
-    title: "德国汉诺威工业展",
-    card: [
-      {
-        title: "背景：",
-        value: `用户希望通过展示厅实现：虚拟下单、数字仿真、知识图谱预测、AR展示等内容的数字双胞胎整体解决方案。`,
-      },
-      {
-        title: "痛点：",
-        value: `时间紧、跨专业、要求复杂。短时间内需提供建筑智能化系统接入、IT系统接入、OT系统接入、VR接入、建模、动画制作等各类不同行业工种服务。`,
-      },
-      {
-        title: "方案：",
-        value: `和多国用户保持协同，应对时差，快速建模，接入各类系统，展厅实现虚拟流水线和仿真预测等功能，并通过MR眼镜上实现虚实互动。`,
-      },
-      {
-        title: "益处：",
-        value: `提前完成项目，让用户的案例和流水线仿真系统在展厅完美融合再现。`,
-      },
-    ],
-  },
-  {
-    key: "4",
-    tabs: "数字孪生",
-    title: "某德国润滑油工厂生产优化",
-    card: [
-      {
-        title: "背景：",
-        value: `工厂原有不同年代建设的数字化系统，流水线作业采用人工巡检的方式。`,
-      },
-      {
-        title: "痛点：",
-        value: `不同智能化系统信息孤岛，不能和业务流程紧密结合，日常巡检，易出现人为失误。`,
-      },
-      {
-        title: "方案：",
-        value: `采用多源异构集成方案，将不同品牌的系统整合在一个平台，将智能化系统嵌入生产业务流程中，利用AR和AI相结合的方式，对生产过程中的异常情况自动识别，全程跟踪溯源。`,
-      },
-      {
-        title: "益处：",
-        value: `智能化系统提供优化策略，避免损失，提高了生产效益。`,
-      },
-    ],
-  },
-  {
-    key: "5",
     tabs: "电气火灾超前预警处置平台",
     title: "某国企电气柜智能诊断及应急处置项目",
     card: [
@@ -492,6 +450,29 @@ const projectList = [
       {
         title: "益处：",
         value: `AI智能提前避险火灾，应急指挥辅助决策，变被动受损为主动巡检。`,
+      },
+    ],
+  },
+  {
+    key: "4",
+    tabs: "数据中心建设",
+    title: "银行数据中心",
+    card: [
+      {
+        title: "背景：",
+        value: `某世界知名的银行数据中心需进行改造，新旧智能化系统并存，部分系统已超10年，部分旧系统已停产需更新，部分旧系统仍需接入新系统。`,
+      },
+      {
+        title: "痛点：",
+        value: `必须确保不断电不断网，涉及各类新旧子系统和不同品牌，施工和调试难度极大。`,
+      },
+      {
+        title: "方案：",
+        value: `整体规划，连续几天24小时轮班作业，项目实施精细到分钟，对改造涉及供配电系统、UPS、综合布线、精密空调、环境控制系统、自动化控制系统等每个子系统都设计了多种实施和应急预案。`,
+      },
+      {
+        title: "益处：",
+        value: `我司在规定时间内零误差超前完成项目。`,
       },
     ],
   },
@@ -836,29 +817,16 @@ const NewsList = [
   position: relative;
   z-index: 1000;
 }
-@media only screen and (min-width: 1280px) {
-  .ourServices .masking {
-    width: 97% !important;
-    height: 380px;
-    background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
-    position: absolute;
-    top: 4px;
-    z-index: 999;
-    opacity: 0.5;
-  }
-}
-@media only screen and (min-width: 1920px) {
-  .ourServices .masking {
-    width: 94% !important;
-    height: 380px;
-    background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
-    position: absolute;
-    top: 4px;
-    z-index: 999;
-    opacity: 0.5;
-  }
-}
 
+.ourServices .masking {
+  width: 97% !important;
+  height: 380px;
+  background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
+  position: absolute;
+  top: 4px;
+  z-index: 999;
+  opacity: 0.5;
+}
 .ourServices .maskingTwo {
   width: 100%;
   height: 185px;

@@ -188,7 +188,7 @@ const tabsList = [
     solutionList: [
       {
         h1: "数字化转型咨询",
-        h4: "Solution",
+        h4: "Digitization Transform",
         solutionListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
@@ -220,7 +220,7 @@ const tabsList = [
     solutionListTwo: [
       {
         h1: "数字化共创课程",
-        h4: "Digitization",
+        h4: "Digitization Course",
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/solution-third.png"),
@@ -306,7 +306,7 @@ const tabsList = [
     solutionList: [
       {
         h1: "远程协作类",
-        h4: "Solution",
+        h4: "Remote Collaboration",
         solutionListSon: [
           {
             img: require("../static/SolutionView/solution-third.png"),
@@ -332,7 +332,7 @@ const tabsList = [
     solutionListTwo: [
       {
         h1: "作业流SOP类",
-        h4: "Solution",
+        h4: "Job Flow",
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
@@ -406,7 +406,7 @@ const tabsList = [
     solutionList: [
       {
         h1: "火灾超前预警处置平台",
-        h4: "Solution",
+        h4: "Fire Warning",
         solutionListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
@@ -432,7 +432,7 @@ const tabsList = [
     solutionListTwo: [
       {
         h1: "规范作业预警处置平台",
-        h4: "Solution",
+        h4: "Standardized Operation",
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
@@ -485,14 +485,16 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-first.png"),
-            title: "缺乏有效的解决方案：",
-            data: "专业要求高、时间成本高。 ",
+            title: "技术问题：",
+            data:
+              "数据中心智能化建设需要应用各种先进的技术和工具，如人工智能、大数据、云计算等，这些技术的引入和应用需要大量的技术支持和投入。 ",
             span: 12,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
-            title: "部门沟通协调困难：",
-            data: "综合智能场景难落地。",
+            title: "安全风险：",
+            data:
+              "数据中心是企业重要的信息资产库，智能化建设可能带来新的安全隐患和风险，需要采取有效的安全防护和管理措施。",
             span: 12,
           },
         ],
@@ -500,25 +502,25 @@ const tabsList = [
     ],
     solutionList: [
       {
-        h1: "火灾超前预警处置平台",
-        h4: "Solution",
+        h1: "自动化安全运维",
+        h4: "Automated Security Operations",
         solutionListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "实时监测：",
-            data: "利用先进的算法和感知技术，能够准确预测危险发生的可能性。",
+            title: "自动化运维：",
+            data: "通过引入自动化工具和技术，对数据中心的运维流程进行智能化升级。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
-            title: "处置方案： ",
-            data: "快速定位源头、自动启动装置、远程操控设备等。",
+            title: "智能安全监测： ",
+            data: "通过引入安全监测工具和技术，对数据中心的安全性进行实时监测和预警。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "高效运行：",
-            data: "有效避免潜在在的风险。",
+            title: "云计算平台建设：",
+            data: "通过引入云计算技术和工具，建设数据中心的云计算平台。",
             span: 8,
           },
         ],
@@ -526,25 +528,26 @@ const tabsList = [
     ],
     solutionListTwo: [
       {
-        h1: "规范作业预警处置平台",
-        h4: "Solution",
+        h1: "数据中心智能",
+        h4: "Intelligent Data Center",
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "实时监测：",
-            data: "通过实时监测作业环境、作业人员的行为和设备状态。",
+            title: "基础设施管理：",
+            data: "包括对数据中心的服务器、网络、存储等基础设施进行管理和监控。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "处置方案：",
-            data: "风险隔离、紧急停工、设备修复等，以确保作业安全和人员健康。",
+            title: "数据中心能耗管理：",
+            data: "通过引入智能化能源管理系统，对数据中心的能耗进行实时监测和控制。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "高效运行：",
-            data: "凭借着灵敏的预警机制和高效的处置能力，有效降低作业风险。",
+            title: "数据分析与挖掘：",
+            data:
+              "通过引入人工智能和大数据分析技术，对数据中心的海量数据进行挖掘和分析。",
             span: 8,
           },
         ],
@@ -557,12 +560,12 @@ const tabsList = [
         h4: "Effects",
         effectsListSon: [
           {
-            value: "无编程基础轻松组合项目流程",
+            value: "提高数据中心的效率",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 12,
           },
           {
-            value: "促进多部门之间的协作创新",
+            value: "提高数据中心的效率",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 12,
           },

@@ -44,28 +44,28 @@
       <h4>Certificate</h4>
       <a-carousel arrows>
         <template #prevArrow>
-          <div
+          <img
             style="
               width: 20px;
               height: 20px;
-              background-color: silver;
               position: absolute;
               top: 40%;
               left: 10%;
               z-index: 100;
             "
-          ></div>
+            src="../static/AboutView/zuojiantou.png"
+          ></img>
         </template>
         <template #nextArrow>
-          <div
+          <img
             style="
               position: absolute;
-              background-color: silver;
               top: 40%;
               right: 10%;
               z-index: 100;
             "
-          ></div>
+            src="../static/AboutView/youjiantou.png"
+          ></img>
         </template>
         <div
           v-for="(certificateItem, certificateIndex) in certificateList"
@@ -79,10 +79,7 @@
                 :key="certIndex"
               >
                 <div style="text-align: center">
-                  <img
-                    :src="certificate.img"
-                    style="width: 100%; height: 70%; margin: 0 auto"
-                  />
+                  <img :src="certificate.img" style="height: 30%; margin: 0 auto" />
                   <div style="text-align: center; margin-top: 25px">
                     {{ certificate.data }}
                   </div>
@@ -251,6 +248,10 @@ const certificateList = [
         img: require("../static/AboutView/about-certificate-9.png"),
         data: "质量管理体系证书",
       },
+      {
+        img: require("../static/AboutView/about-certificate-13.png"),
+        data: "电气系统风险预测管理系统",
+      },
     ],
   },
   {
@@ -270,14 +271,6 @@ const certificateList = [
       {
         img: require("../static/AboutView/about-certificate-12.png"),
         data: "FOD多维度识别预警系统",
-      },
-    ],
-  },
-  {
-    certificate: [
-      {
-        img: require("../static/AboutView/about-certificate-13.png"),
-        data: "电气系统风险预测管理系统",
       },
     ],
   },
@@ -307,7 +300,7 @@ const customersList = [
     img: require("../static/AboutView/about-our-first (1).png"),
   },
   {
-    img: require("../static/AboutView/about-our-first (2).png"),
+    img: require("../static/AboutView/about-our-first (7).png"),
   },
   {
     img: require("../static/AboutView/about-our-first (3).png"),
@@ -316,7 +309,7 @@ const customersList = [
     img: require("../static/AboutView/about-our-first (4).png"),
   },
   {
-    img: require("../static/AboutView/about-our-first (5).png"),
+    img: require("../static/AboutView/about-our-first (6).png"),
   },
 ];
 </script>

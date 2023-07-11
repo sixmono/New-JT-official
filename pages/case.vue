@@ -6,11 +6,10 @@
       <div class="headerBody">
         <h5 class="headerBodyTitle">成功案例</h5>
         <div class="headerBodyLine"></div>
-        <!-- <h6 class="headerBodyData"></h6> -->
       </div>
     </div>
     <div class="tabs">
-      <a-tabs v-model:activeKey="activeKey" @change="handleChange">
+      <a-tabs v-model:activeKey="activeKey">
         <a-tab-pane
           v-for="(tabsItem, tabsIndex) in tabsList"
           :key="tabsItem.key"
@@ -63,14 +62,43 @@ import { ref } from "vue";
 
 const activeKey = ref("1");
 
-const handleChange = () => {
-  activeKey;
-};
-
 const tabsList = [
   {
-    tab: "AR/VR/MR眼镜方案",
+    tab: "咨询.培训",
     key: "1",
+    cardList: [
+      {
+        title: "某水厂合规方案咨询优化",
+        value: "知识图谱",
+        img: require("../static/CaseView/case-21.png"),
+        card: [
+          {
+            background: "背景：",
+            data:
+              "水厂大部分检修维流程项目使用外包的方式，对工作人员的安全保障手段目前采用人工安全审核与安全作业指导的方式。",
+          },
+          {
+            background: "痛点：",
+            data:
+              "经过咨询发现，目前水厂对有限空间下的作业以及其他特种作业基本没有智能化的监察手段，在发生危险的第一时间没有及时的解决办法。",
+          },
+          {
+            background: "方案：",
+            data:
+              "采用监理机器人伴随的方案，将合规与智能化结合，使用深度学习与知识图谱等手段，智能化作业过程，随时溯源。",
+          },
+          {
+            background: "益处：",
+            data:
+              "智能化系统，提高工作人员安全性，避免造成人生安全损失，提高了检维修效率。",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    tab: "AR/VR/MR眼镜方案",
+    key: "2",
     cardList: [
       {
         title: "远程医疗：",
@@ -223,7 +251,7 @@ const tabsList = [
       {
         title: "远程协助：",
         value: "米其林",
-        img: require("../static/CaseView/case-7.png"),
+        img: require("../static/CaseView/case-19.png"),
         card: [
           {
             background: "背景：",
@@ -250,7 +278,7 @@ const tabsList = [
   },
   {
     tab: "IT/OT/MR集成",
-    key: "2",
+    key: "3",
     cardList: [
       {
         title: "电气火灾超前预警处置平台：",
@@ -306,7 +334,7 @@ const tabsList = [
       {
         title: "垃圾分类管理：",
         value: "上海某区政府垃圾分类智能管理",
-        img: require("../static/CaseView/case-10.png"),
+        img: require("../static/CaseView/case-20.png"),
         card: [
           {
             background: "背景：",
@@ -485,38 +513,6 @@ const tabsList = [
   },
   {
     tab: "数据中心建设",
-    key: "3",
-    cardList: [
-      {
-        title: "某外资银行",
-        value: "银行数据中心",
-        img: require("../static/CaseView/case-18.png"),
-        card: [
-          {
-            background: "背景：",
-            data:
-              "电气柜火灾造成停电停产，领导担责，灾后投入大量人力巡检，工作强度大，人力成本高",
-          },
-          {
-            background: "痛点：",
-            data:
-              "烟感报警只能提前几分钟预警电气火灾，救援时间紧；巡检人员技术参差不齐，无法确保及时准确处置电气火灾；人工巡检记录不够准确完整",
-          },
-          {
-            background: "方案：",
-            data:
-              "采用多种传感器，通过AI算法模型，提前几天发现火灾隐患并预警，并将应急预案通知到相关处置人员，接收人按照方案快速执行即可",
-          },
-          {
-            background: "益处：",
-            data: "AI智能提前避险火灾，应急指挥辅助决策，变被动受损为主动巡检",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    tab: "咨询",
     key: "4",
     cardList: [
       {
