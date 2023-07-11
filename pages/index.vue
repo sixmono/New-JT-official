@@ -1,0 +1,1046 @@
+<template>
+  <div class="main">
+    <!-- 表头 -->
+    <HeaderView />
+    <!-- 图片 -->
+    <div class="container">
+      <img src="../static/indexView/logo.png" alt="" />
+    </div>
+    <!-- 公司简介 -->
+    <div class="companyProfile">
+      <div class="companyProfileLeft">
+        <div class="top">
+          <h1>走进疆通</h1>
+          <h2>About</h2>
+        </div>
+        <div style="margin-top: 50px">
+          <video controls autoplay loop width="100%" id="video" ref="video">
+            <source
+              src="https://allen2023-06-09.oss-cn-beijing.aliyuncs.com/index-video.mp4?Expires=1688759653&OSSAccessKeyId=TMP.3KdenQ4HvzEjK3z4cMbYHbLXjW2J8Kj5f8SpytjL83xJDa2kNLiWYmc8hRQeJfTWVhoaKVHbA79hNAcbnPLBk2BzfttDJ5&Signature=kutbWyh4m5Djyv3YpLz8WPj6Puo%3D"
+            />
+          </video>
+        </div>
+      </div>
+      <div class="companyProfileRight">
+        <div>
+          <h1>上海疆通</h1>
+          <h1>科技有限公司</h1>
+          <h4 style="margin-top: 42px">
+            上海疆通科技有限公司于2016年成立，是高新技术企业、科技型中小企业、上海市华东师范大学毕业生实习基地、上海市人工智能行业协会会员单位，拥有电子与智能化工程专业承包二级资质和ISO9001质量体系认证，公司拥有软硬件自主研发能力，一直致力于智能应急处置系统和数据中心的智能化建设。
+          </h4>
+          <h4>
+            主营业务是以物联传感为依托、以算法模型赋能、以MR图文呈现，实现IT/OT/MR互通的低代码系统集成方案，赋能企业顺利开展数字化转型。
+          </h4>
+          <div class="bottom">
+            <div>
+              <span>200</span>
+              <div>城市覆盖</div>
+            </div>
+            <a-divider type="vertical" />
+            <div>
+              <span>15</span>
+              <div>自研产品</div>
+            </div>
+            <a-divider type="vertical" />
+            <div>
+              <span>30</span>
+              <div>合作企业</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 核心优势 -->
+    <div class="coreAdvantage">
+      <h1>核心优势</h1>
+      <h4>Core advantages</h4>
+      <div class="cardAll">
+        <a-row :gutter="100">
+          <a-col :span="10" v-for="(cardItem, cardIndex) in cardList" :key="cardIndex">
+            <div style="display: flex; background-color: #ffffff">
+              <img :src="cardItem.img" class="coreAdvantageImg" />
+              <div>
+                <div class="topTitle">{{ cardItem.title }}</div>
+                <div class="bottomTitle">{{ cardItem.data }}</div>
+              </div>
+            </div>
+          </a-col>
+        </a-row>
+      </div>
+      <div style="position: relative; margin: 50px 0">
+        <div style="width: 100%; height: 2px; border-top: 2px dashed #4363d4"></div>
+      </div>
+      <div class="cardAllTwo">
+        <a-row :gutter="100">
+          <a-col :span="8" v-for="(cardItem, cardIndex) in cardList2" :key="cardIndex">
+            <div style="display: flex; background-color: #ffffff">
+              <img :src="cardItem.img" class="coreAdvantageImg" />
+              <div>
+                <div class="topTitle">{{ cardItem.title }}</div>
+                <div class="bottomTitle">{{ cardItem.data }}</div>
+              </div>
+            </div>
+          </a-col>
+        </a-row>
+      </div>
+    </div>
+    <!-- 技术能力 -->
+    <div class="solution">
+      <h1>技术能力</h1>
+      <h4>Solution</h4>
+      <div class="cardAll">
+        <div
+          class="card"
+          v-for="(solutionItem, solutionIndex) in solutionList"
+          :key="solutionIndex"
+        >
+          <div style="display: flex">
+            <img
+              :src="require(`../static/indexView/${solutionItem.img}.png`)"
+              class="img"
+            />
+            <div>
+              <div class="topTitle">{{ solutionItem.title }}</div>
+              <div style="font-weight: 900">
+                {{ solutionItem.title2 }}
+              </div>
+              <div class="bottomTitle">{{ solutionItem.data }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 我们的服务 -->
+    <div class="ourServices">
+      <h1>我们的服务</h1>
+      <h4>Our services</h4>
+      <div>
+        <a-tabs v-model:activeKey="activeKey" style="position: relative">
+          <a-tab-pane
+            :key="ourServicesItem.key"
+            v-for="(ourServicesItem, ourServicesIndex) in ourServicesList"
+            :tab="ourServicesItem.tabs"
+          >
+            <a-row :gutter="[10, 10]">
+              <a-col :span="8">
+                <div class="colLeft">
+                  <img
+                    :src="ourServicesItem.img"
+                    style="position: absolute; top: 4px; left: 4px"
+                    alt=""
+                  />
+                  <div class="colLeftTitle">{{ ourServicesItem.title }}</div>
+                  <div class="colLeftLine"></div>
+                  <div class="colLeftData">
+                    {{ ourServicesItem.data }}
+                  </div>
+                </div>
+                <div class="masking"></div>
+              </a-col>
+              <a-col :span="16">
+                <a-row :gutter="[10, 10]">
+                  <a-col
+                    :span="ourServicesItemSon.span"
+                    v-for="(
+                      ourServicesItemSon, ourServicesItemSonIndex
+                    ) in ourServicesItem.cardData"
+                    :key="ourServicesItemSonIndex"
+                  >
+                    <div class="imgDivFirst">
+                      <img
+                        :src="ourServicesItemSon.img"
+                        style="position: absolute; top: 2px; left: 4px"
+                      />
+                      <div class="colLeftTitle">
+                        {{ ourServicesItemSon.title }}
+                      </div>
+                      <div class="colLeftLine"></div>
+                      <div class="colLeftData">
+                        {{ ourServicesItemSon.data }}
+                      </div>
+                    </div>
+                    <div class="maskingTwo"></div>
+                  </a-col>
+                </a-row>
+              </a-col>
+            </a-row>
+          </a-tab-pane>
+        </a-tabs>
+      </div>
+    </div>
+    <!-- 项目案例 -->
+    <div class="projectCases">
+      <h1>项目案例</h1>
+      <h4>Project Cases</h4>
+      <a-tabs v-model:activeKey="activeKeyList" tab-position="left">
+        <a-tab-pane
+          :key="projectItem.key"
+          :tab="projectItem.tabs"
+          v-for="(projectItem, projectIndex) in projectList"
+        >
+          <h2 style="color: #ffffff">{{ projectItem.title }}</h2>
+          <h3 style="color: #ffffff">{{ projectItem.tabs }}</h3>
+          <a-row :gutter="[30, 30]" style="margin-top: 47px; color: #ffffff">
+            <a-col
+              v-for="(projectItemSon, projectItemSonIndex) in projectItem.card"
+              :key="projectItemSonIndex"
+              :span="12"
+            >
+              <div class="projectTitle">
+                <div>
+                  {{ projectItemSon.title }}
+                </div>
+                <div class="projectValue">
+                  {{ projectItemSon.value }}
+                </div>
+              </div>
+            </a-col>
+          </a-row>
+        </a-tab-pane>
+      </a-tabs>
+      <a-button class="viewBtn">
+        <NuxtLink to="case">查看更多 →</NuxtLink>
+      </a-button>
+    </div>
+    <!-- 新闻资讯 -->
+    <div class="news">
+      <h1>新闻资讯</h1>
+      <h4>News</h4>
+      <div class="newsMain" style="display: flex">
+        <div class="card" v-for="(NewsItem, NewsIndex) in NewsList" :key="NewsIndex">
+          <img src="../static/indexView/timing.png" alt="" /><span class="cardDate">{{
+            NewsItem.date
+          }}</span>
+          <div class="cardTitle">
+            {{ NewsItem.title }}
+          </div>
+          <a :href="NewsItem.href"><a-button>了解更多</a-button></a>
+          <img style="margin-top: 40px; width: 100%" :src="NewsItem.img" alt="" />
+        </div>
+      </div>
+    </div>
+    <FooterView />
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "IndexPage",
+});
+</script>
+
+<script lang="ts" setup>
+import { ref } from "vue";
+
+const activeKey = ref("1");
+const activeKeyList = ref("1");
+const viewMoreClick = () => {
+  router.push({ path: "/about" });
+};
+const video = ref(true);
+
+const handleClick = () => {
+  console.log("aaa");
+};
+
+const cardList = [
+  {
+    img: require("../static/indexView/coreAdvantage-first.png"),
+    title: "专业：全流程最优数字化方案",
+    data: "从咨询到落地，与西门子中国研究院、中大咨询等国内外顶尖咨询公司合作。",
+  },
+  {
+    img: require("../static/indexView/coreAdvantage-fourth.png"),
+    title: "降本：利旧纳新",
+    data: "自研物联数字系统支持接入旧设备、旧系统，降本的同时避免受制于供应商。",
+  },
+];
+const cardList2 = [
+  {
+    img: require("../static/indexView/coreAdvantage-third.png"),
+    title: "省时：高效部署",
+    data: "标准接口、快速开发，部署周期短，开放式云平台无缝整合第三方产品。",
+  },
+  {
+    img: require("../static/indexView/coreAdvantage-second.png"),
+    title: "放心：服务全国",
+    data: "覆盖全国的专业服务团队， 多个全球500强企业案例。",
+  },
+];
+
+const solutionList = [
+  {
+    img: "solution-first",
+    title: "发现问题",
+    title2: "感知：",
+    data: "超前预警",
+  },
+  {
+    img: "solution-second",
+    title: "分析问题",
+    data: "建模：算法推演",
+  },
+  {
+    img: "solution-third",
+    title: "解决问题",
+    data: "行为：协同处置",
+  },
+  {
+    img: "solution-fourth",
+    title: "复盘问题",
+    data: "重构：IT/OT/MR低代码互联",
+  },
+];
+const ourServicesList = [
+  {
+    key: "1",
+    tabs: "咨询.培训",
+    title: "概述：",
+    data:
+      "疆通与西门子中国研究院、中大咨询等国内外顶尖咨询公司深度合作，开展相应的咨询和共创课程，大幅节省用户寻找最佳数字方案时间成本，顶级专家齐聚一堂为用户打造可落地的数字化方案。",
+    img: require("../static/indexView/index-ourServices-first.jpg"),
+    cardData: [
+      {
+        span: "24",
+        title: "数字化转型咨询",
+        data: "挖掘场景、模型构建、数据打通、价值创造",
+        img: require("../static/indexView/index-ourServices-1.jpg"),
+      },
+      {
+        span: "24",
+        title: "数字化共创课程",
+        data:
+          "梳理需求、制定策略（明确创新目标和价值）、原型开发（量身定做可操作应用）、验证推广（现场部署与推广方案）",
+        img: require("../static/indexView/index-ourServices-2.jpg"),
+      },
+    ],
+  },
+  {
+    key: "2",
+    tabs: "AR/VR/MR眼镜方案",
+    title: "概述：",
+    data:
+      "疆通拥有丰富的AR/VR/MR眼镜服务经验，我们可通过软件平台的远程协助、SOP作业流、互动多媒体展示等功能，实现信息可视化、虚实互动，解决信息的时空错位，丰富展示内容。",
+    img: require("../static/indexView/index-ourServices-second.jpg"),
+    cardData: [
+      {
+        span: "10",
+        title: "远程协作类",
+        data: "人和人分离，专家在后台远程支持。",
+        img: require("../static/indexView/index-ourServices-4.jpg"),
+      },
+      {
+        rightHeight: 185,
+        span: "14",
+        title: "作业流SOP类",
+        data:
+          "人和技术分离，知识固化在设备上，使用者按照眼镜中的图文要求，完成作业，如有违规，自动纠错",
+        img: require("../static/indexView/index-ourServices-5.jpg"),
+      },
+      {
+        rightHeight: 185,
+        span: "24",
+        title: "数字孪生仿真类",
+        data:
+          "现实与虚拟镜像同步，AR是人与物理世界实时沟通的桥梁，是数字孪生的最佳运行环境。",
+        img: require("../static/indexView/index-ourServices-1.jpg"),
+      },
+    ],
+  },
+  {
+    key: "3",
+    tabs: "IT/OT/MR集成",
+    title: "概述",
+    data:
+      "疆通结合用户的需求，会将多个不同学科的专家组成项目组，合作梳理需求，通过集成融合信息技术（IT）、运营技术（OT）、增强现实技术(AR)，将经验知识、规则规范与数字化服务相结合，为用户定制低代码平台，使智能化场景采用图形拖拽的方式即可实现智能场景落地，助力数字场景规模化应用。",
+    img: require("../static/indexView/index-ourServices-third.jpg"),
+    cardData: [
+      {
+        rightHeight: 370,
+        span: "24",
+        title: "智能诊断与应急处置平台",
+        data:
+          "合规处置，往往需在很短的时间里，根据有限的信息，针对不确定的需求，向不同对象快速分派有限的资源，做出最优决策，对处置行为进行指导和监督，事后复盘流程再造，形成闭环管理。",
+        img: require("../static/indexView/index-ourServices-2.jpg"),
+      },
+    ],
+  },
+  {
+    key: "4",
+    tabs: "数据中心智能化建设",
+    title: "概述",
+    data:
+      "所有的数字化建设都是建立在数据处理的基础之上，数据中心的建造专业性要求极高，出于成本考虑，有时还会出现新旧系统搭建的需求，这种需求更是难上加难，疆通拥有多年数据中心成功建设经验，可以为企业的数字化建设保驾护航。",
+    img: require("../static/indexView/index-ourServices-third.jpg"),
+    cardData: [],
+  },
+];
+// if (ourServicesList.cardData.length <= 1) {
+// }
+const projectList = [
+  {
+    key: "1",
+    tabs: "远程医疗",
+    title: "上海120院前救治",
+    card: [
+      {
+        title: "背景：",
+        value: `急救中心院前救治需要数字化手段提高救治率。`,
+      },
+      {
+        title: "痛点：",
+        value: `随车医生遇到部分紧急病情的外援手段单一不直观；无法同时监控多个诊疗器械导致效率低；车载摄像头辅助远程监控视角死角多，效果不佳。`,
+      },
+      {
+        title: "方案：",
+        value: `采用AR眼镜和无线传输`,
+      },
+      {
+        title: "益处：",
+        value: `即插即用，建设周期短，实现第一视角外设接入和的互动会诊`,
+      },
+    ],
+  },
+  {
+    key: "2",
+    tabs: "远程协助",
+    title: "米其林",
+    card: [
+      {
+        title: "背景：",
+        value: `工业轮胎使用环境多是交通不便的山区、矿区等野外环境、技术维修复杂，需要专业技工维修。`,
+      },
+      {
+        title: "痛点：",
+        value: `专业技工无法及时赶到用户现场，采用手机互动时现场前端无法同步看到手机画面。`,
+      },
+      {
+        title: "方案：",
+        value: `低代码接入售后服务平台，采用远程协助平台，可随时确保异地用户得到准确服务。`,
+      },
+      {
+        title: "益处：",
+        value: `大量节约企业的服务成本、提高了用户服务满意度。`,
+      },
+    ],
+  },
+  {
+    key: "3",
+    tabs: "数字孪生",
+    title: "德国汉诺威工业展",
+    card: [
+      {
+        title: "背景：",
+        value: `用户希望通过展示厅实现：虚拟下单、数字仿真、知识图谱预测、AR展示等内容的数字双胞胎整体解决方案。`,
+      },
+      {
+        title: "痛点：",
+        value: `时间紧、跨专业、要求复杂。短时间内需提供建筑智能化系统接入、IT系统接入、OT系统接入、VR接入、建模、动画制作等各类不同行业工种服务。`,
+      },
+      {
+        title: "方案：",
+        value: `和多国用户保持协同，应对时差，快速建模，接入各类系统，展厅实现虚拟流水线和仿真预测等功能，并通过MR眼镜上实现虚实互动。`,
+      },
+      {
+        title: "益处：",
+        value: `提前完成项目，让用户的案例和流水线仿真系统在展厅完美融合再现。`,
+      },
+    ],
+  },
+  {
+    key: "4",
+    tabs: "数字孪生",
+    title: "某德国润滑油工厂生产优化",
+    card: [
+      {
+        title: "背景：",
+        value: `工厂原有不同年代建设的数字化系统，流水线作业采用人工巡检的方式。`,
+      },
+      {
+        title: "痛点：",
+        value: `不同智能化系统信息孤岛，不能和业务流程紧密结合，日常巡检，易出现人为失误。`,
+      },
+      {
+        title: "方案：",
+        value: `采用多源异构集成方案，将不同品牌的系统整合在一个平台，将智能化系统嵌入生产业务流程中，利用AR和AI相结合的方式，对生产过程中的异常情况自动识别，全程跟踪溯源。`,
+      },
+      {
+        title: "益处：",
+        value: `智能化系统提供优化策略，避免损失，提高了生产效益。`,
+      },
+    ],
+  },
+  {
+    key: "5",
+    tabs: "电气火灾超前预警处置平台",
+    title: "某国企电气柜智能诊断及应急处置项目",
+    card: [
+      {
+        title: "背景：",
+        value: `电气柜火灾造成停电停产，领导担责，灾后投入大量人力巡检，工作强度大，人力成本高。`,
+      },
+      {
+        title: "痛点：",
+        value: `烟感报警只能提前几分钟预警电气火灾，救援时间紧；巡检人员技术参差不齐，无法确保及时准确处置电气火灾；人工巡检记录不够准确完整。`,
+      },
+      {
+        title: "方案：",
+        value: `采用多种传感器，通过AI算法模型，提前几天发现火灾隐患并预警，并将应急预案通知到相关处置人员，接收人按照方案快速执行即可。`,
+      },
+      {
+        title: "益处：",
+        value: `AI智能提前避险火灾，应急指挥辅助决策，变被动受损为主动巡检。`,
+      },
+    ],
+  },
+];
+const NewsList = [
+  {
+    date: "2023-03-04",
+    title: "喜报！疆通科技入选​上海市人工智能行业协会会员单位",
+    img: require("../static/indexView/news-first.png"),
+    href: "https://mp.weixin.qq.com/s/B45MP_YygThc3-cOdbYyHw",
+  },
+  {
+    date: "2023-04-14",
+    title: "疆通荣获西门子黑客松大赛最佳创意奖",
+    img: require("../static/indexView/news-second.png"),
+    href: "https://mp.weixin.qq.com/s/pmAKQXWisYmrlDgmPHfBhg",
+  },
+  {
+    date: "2023-04-17",
+    title: "疆通助力上海120急救中心，AR技术让急救加速",
+    img: require("../static/indexView/news-third.png"),
+    href:
+      "https://mp.weixin.qq.com/s?__biz=MzIwMDg4MDQyMA==&mid=2247485912&idx=1&sn=e5bc6ca4479a1b2945caee5224276868&chksm=96f73193a180b8855731f8980921c4987705957f7c9ef0662bca0a71189c69a6965f0cd2558c#rd",
+  },
+];
+</script>
+
+<style scoped>
+.main {
+  background-color: #f0f2f5;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@media only screen and (max-width: 1500px) {
+  .companyProfile {
+    padding: 60px 15% !important;
+  }
+}
+/* ----------------------logo图片------------------- */
+.container img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(192deg, #ffffff 0%, #f7f8fe 0%, #6491f6 100%);
+}
+/* ----------------------公司简介---------------- */
+
+.companyProfile {
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  display: flex;
+  padding: 60px 20%;
+}
+/* 公司简介左侧边 */
+.companyProfileLeft {
+  width: 50%;
+  background: #f7f7f7;
+}
+/* 左侧边标题 */
+.companyProfileLeft .top {
+  background-color: #f7f7f7;
+}
+.companyProfileLeft h1 {
+  font-size: 40px;
+  color: #333333;
+  line-height: 56px;
+  margin: 0;
+  font-family: fantasy;
+  font-weight: bold;
+}
+.companyProfileLeft h2 {
+  font-size: 26px;
+  color: #cccccc;
+  line-height: 36px;
+  margin: 0;
+}
+
+/* 公司简介右侧边 */
+.companyProfileRight {
+  width: 50%;
+  background: #f7f7f7;
+  border-top: 5px solid #294dce;
+  padding: 40px 50px;
+}
+/* 右侧边标题 */
+.companyProfileRight h1 {
+  letter-spacing: 10px;
+  color: #333333;
+  font-size: 50px;
+  margin: 0;
+  font-family: fantasy;
+  font-weight: bold;
+}
+/* 文字内容 */
+.companyProfileRight h4 {
+  text-indent: 2em;
+  font-weight: 400;
+  color: #333333;
+  line-height: 35px;
+  font-weight: 400;
+}
+/* 底部内容 */
+.companyProfileRight .bottom {
+  height: 100px;
+  display: flex;
+}
+.companyProfileRight .bottom span {
+  font-size: 46px;
+  color: #294dce;
+  font-weight: bold;
+}
+.companyProfileRight .bottom div {
+  font-size: 16px;
+  font-weight: 400;
+  color: #999999;
+}
+.companyProfileRight > .ant-divider,
+.ant-divider-vertical {
+  height: 60px !important;
+  background-color: #e9e9e9;
+  margin: 20px 40px 0;
+}
+
+/* --------------------------- 核心优势 ------------------------------ */
+.coreAdvantage {
+  width: 100%;
+  height: 100%;
+}
+
+.coreAdvantage h1 {
+  padding: 0 20%;
+  font-size: 40px;
+  color: #333333;
+  line-height: 56px;
+  margin: 60px 0 0 0;
+  font-family: fantasy;
+  font-weight: bold;
+}
+
+.coreAdvantage h4 {
+  margin: 0;
+  font-size: 26px;
+  color: #cccccc;
+  line-height: 36px;
+  padding: 0 20%;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.coreAdvantage .cardAll {
+  margin-top: 100px;
+  padding: 0 20%;
+}
+
+.coreAdvantage .card,
+.cardTwo {
+  width: 28%;
+  height: 90px;
+  display: inline-block;
+  background-color: #ffffff;
+}
+
+.coreAdvantage .card {
+  margin-left: 30px;
+}
+.coreAdvantage .cardAllTwo {
+  padding: 0 0 0 25%;
+}
+.coreAdvantage .card:nth-child(2) {
+  margin-left: 8%;
+}
+
+.coreAdvantage .cardTwo {
+  margin-left: 160px;
+}
+
+.coreAdvantage .topTitle {
+  margin-top: 15px;
+  font-size: 16px;
+  padding-right: 10px;
+  color: #333333;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: fantasy;
+  font-weight: 700;
+}
+.coreAdvantageImg {
+  width: 60px;
+  height: 100%;
+  margin: 15px 20px 15px 10px;
+}
+.coreAdvantage .bottomTitle {
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  padding-right: 10px;
+  color: #999999;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  word-break: break-all;
+  display: inline-block;
+}
+/* --------------------解决方案-------------------- */
+
+.solution {
+  padding: 60px 20%;
+  margin-top: 60px;
+  background-color: #ffffff;
+}
+
+.solution h1 {
+  margin: 0;
+  font-size: 40px;
+  color: #333333;
+  font-family: fantasy;
+  font-weight: bold;
+}
+.solution h4 {
+  font-size: 26px;
+  color: #cccccc;
+  margin-bottom: 60px;
+  margin: 0;
+}
+.solution img {
+  width: 60px;
+  height: 100%;
+  margin: 45px 20px;
+}
+.solution .cardAll {
+  display: flex;
+  margin-top: 70px;
+}
+.solution .card {
+  width: 280px;
+  height: 150px;
+  background: #ffffff;
+  border: 1px solid #ededed;
+  margin-left: 27px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  word-break: break-all;
+  display: inline-block;
+}
+.solution .card:nth-child(1) {
+  margin: 0;
+}
+.solution .topTitle {
+  font-size: 18px;
+  color: #333333;
+  margin-top: 20px;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  word-break: break-all;
+  display: inline-block;
+}
+@media only screen and(max-width: 1280px) {
+  .solution .topTitle {
+    font-size: 14px;
+    color: #333333;
+    margin-top: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    word-break: break-all;
+    display: inline-block;
+  }
+  .solution .bottomTitle {
+    margin: 12px 35px 33px 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #999999;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    word-break: break-all;
+    display: inline-block;
+  }
+}
+
+.solution .bottomTitle {
+  margin: 12px 35px 33px 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999999;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  word-break: break-all;
+  display: inline-block;
+}
+/* -------------------我们的服务------------------------ */
+.ourServices {
+  padding: 60px 20%;
+}
+.ourServices h1 {
+  font-size: 40px;
+  color: #333333;
+  margin: 0;
+  font-family: fantasy;
+  font-weight: bold;
+}
+.ourServices h4 {
+  font-size: 26px;
+  color: #cccccc;
+  margin-bottom: 60px;
+  font-family: fantasy;
+}
+.ourServices .colDIv {
+  width: 98%;
+  height: 380px;
+}
+.ourServices .colLeft {
+  width: 100%;
+  height: 380px;
+  padding: 67px 30px;
+  background-repeat: no-repeat;
+}
+.ourServices .colLeftLine {
+  width: 30px;
+  height: 3px;
+  background: #ffffff;
+  margin: 10px 0;
+  position: relative;
+  z-index: 1000;
+}
+@media only screen and (min-width: 1280px) {
+  .ourServices .masking {
+    width: 97% !important;
+    height: 380px;
+    background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
+    position: absolute;
+    top: 4px;
+    z-index: 999;
+    opacity: 0.5;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .ourServices .masking {
+    width: 94% !important;
+    height: 380px;
+    background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
+    position: absolute;
+    top: 4px;
+    z-index: 999;
+    opacity: 0.5;
+  }
+}
+
+.ourServices .maskingTwo {
+  width: 100%;
+  height: 185px;
+  background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
+  position: absolute;
+  top: 4px;
+  z-index: 999;
+  opacity: 0.5;
+}
+.colLeftTitle {
+  color: #ffffff;
+  font-size: 18px;
+  position: relative;
+  z-index: 1000;
+  font-family: fantasy;
+  font-weight: 700;
+}
+.colLeftData {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  position: relative;
+  z-index: 1000;
+  font-weight: 400;
+}
+.colLeft .colLeftData {
+  width: 280px;
+}
+.colLeft img {
+  width: 97%;
+  overflow: hidden;
+  height: 98%;
+}
+.imgDivFirst {
+  width: 100%;
+  height: 185px;
+  padding: 36px 30px;
+  /* background-size: scale(2); */
+  /* background-image: url("../static/indexView/ourServices-second.jpg"); */
+}
+.imgDivFirst .colLeftData {
+  width: 100%;
+}
+
+/* tabs样式 */
+:deep(.ourServices .ant-tabs-nav-scroll) {
+  text-align: center !important;
+  background: #f7f7f7;
+  height: 60px;
+  font-size: 18px;
+  color: #333333;
+}
+:deep(.ourServices .ant-tabs-bar) {
+  margin: 0;
+}
+/* ----------------------项目案例----------------------- */
+.projectCases {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  background-image: url("../static/indexView/projectCases-background.png");
+}
+
+.projectCases h1 {
+  padding: 60px 20% 0;
+  font-size: 40px;
+  color: #ffffff;
+  font-family: fantasy;
+  font-weight: 900;
+  margin: 0;
+}
+
+.projectCases h4 {
+  padding: 0 20%;
+  font-size: 26px;
+  color: #cccccc;
+  margin: 0;
+}
+
+.projectTitle {
+  height: 130px;
+  padding: 15px 15px 20px 17px;
+  border: 1px solid #ffffff;
+}
+.projectValue {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  word-break: break-all;
+}
+h2 {
+  font-weight: 700;
+}
+h3 {
+  font-weight: 300;
+}
+.viewBtn {
+  position: absolute;
+  top: 90%;
+  left: 24%;
+  background-color: #4a515e;
+  outline: none;
+  border: none;
+  border-radius: unset;
+  color: #ffffff;
+  width: 120px;
+  height: 40px;
+}
+:deep(.projectCases .ant-tabs) {
+  margin: 40px 20%;
+  height: 100%;
+  background: #191f2c;
+  opacity: 0.8;
+}
+:deep(.projectCases .ant-tabs-nav-wrap) {
+  width: 280px;
+  padding: 28px 30px 0 20px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+:deep(.projectCases .ant-tabs .ant-tabs-left-bar .ant-tabs-tab) {
+  text-align: left;
+}
+:deep(.projectCases .ant-tabs-nav .ant-tabs-tab-active) {
+  background-color: #294dce;
+  color: #ffffff;
+  height: 50px;
+  line-height: 34px;
+}
+
+:deep(.projectCases .ant-tabs .ant-tabs-left-content) {
+  height: 100%;
+  padding: 41px 64px;
+  background-image: url("../static/indexView/projectCases-right.png");
+}
+
+/* -------------------------------新闻资讯--------------------------- */
+.news {
+  padding: 60px 20%;
+  position: relative;
+}
+.news h1 {
+  font-size: 40px;
+  color: #333333;
+  margin: 0;
+  font-family: fantasy;
+  font-weight: 700;
+}
+
+.news h4 {
+  font-size: 26px;
+  color: #cccccc;
+  margin: 0 0 60px 0;
+}
+.news .card {
+  border-left: 1px solid #efefef;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 42px 25px;
+}
+.news .card:nth-child(1) {
+  border: none;
+}
+.news .cardTitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  word-break: break-all;
+  width: 280px;
+  white-space: nowrap;
+  margin: 20px 0 30px 0;
+}
+.news .cardDate {
+  font-size: 14px;
+  font-weight: 400;
+  color: #294dce;
+  margin-left: 10px;
+  display: inline-block;
+}
+</style>
