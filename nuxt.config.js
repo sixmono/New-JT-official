@@ -1,16 +1,9 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'JT-official',
+    title: 'project',
     htmlAttrs: {
       lang: 'en'
-    },
-    hooks: {
-      'render:route': (url, result) => {
-         const ara= cheerio.load(result.html,{decodeEntities: false});
-         ara(`meta`).removeAttr('data-n-head');
-         result.html = ara.html()
-      }
     },
     meta: [
       { charset: 'utf-8' },
