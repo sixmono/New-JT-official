@@ -175,7 +175,7 @@ const tabsListData = [
         sequence: "02",
         enTitle: "VISION",
         title: "愿景",
-        data: "成为合规、高效、智慧场景的标杆",
+        data: "成为合规、高效、智慧的标杆",
       },
       {
         span: 4,
