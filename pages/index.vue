@@ -853,7 +853,7 @@ const NewsList = [
   font-weight: 400;
 }
 .colLeft .colLeftData {
-  width: 280px;
+  width: 100%;
 }
 .colLeft img {
   width: 97%;

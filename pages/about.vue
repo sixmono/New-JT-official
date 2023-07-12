@@ -79,7 +79,7 @@
                 :key="certIndex"
               >
                 <div style="text-align: center">
-                  <img :src="certificate.img" style="height: 30%; margin: 0 auto" />
+                  <img :src="certificate.img" style=" width:70%;height: 70%;margin: 0 auto" />
                   <div style="text-align: center; margin-top: 25px">
                     {{ certificate.data }}
                   </div>
