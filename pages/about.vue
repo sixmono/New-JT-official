@@ -77,6 +77,7 @@
                 :span="6"
                 v-for="(certificate, certIndex) in certificateItem.certificate"
                 :key="certIndex"
+                class="certificateCol"
               >
                 <div style="text-align: center">
                   <img :src="certificate.img" style=" width:70%;height: 70%;margin: 0 auto" />
@@ -435,6 +436,14 @@ const customersList = [
 .certificateRow {
   padding: 0 20%;
   /* position: absolute; */
+}
+.certificateRow :nth-child(1) img {
+  height: 100%;
+  width: 60%;
+}
+.certificateCol :nth-child(2){
+  width: 100%;
+  height: 100%;
 }
 .semicircle {
   height: 220px;

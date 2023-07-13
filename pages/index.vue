@@ -123,11 +123,11 @@
             :tab="ourServicesItem.tabs"
           >
             <a-row :gutter="[10, 10]">
-              <a-col :span="8">
+              <a-col :span="8" style="padding: 0">
                 <div class="colLeft">
                   <img
                     :src="ourServicesItem.img"
-                    style="position: absolute; top: 4px; left: 4px"
+                    style="position: absolute; top: 2px; left: 4px"
                     alt=""
                   />
                   <div class="colLeftTitle">{{ ourServicesItem.title }}</div>
@@ -817,13 +817,24 @@ const NewsList = [
   position: relative;
   z-index: 1000;
 }
+.imgDivFirst {
+  width: 100%;
+  height: 185px;
+  padding: 36px 30px;
+  /* background-size: scale(2); */
+  /* background-image: url("../static/indexView/ourServices-second.jpg"); */
+}
+
+.imgDivFirst img {
+  height: 185px;
+}
 
 .ourServices .masking {
-  width: 97% !important;
+  width: 98% !important;
   height: 380px;
   background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
   position: absolute;
-  top: 4px;
+  top: 2px;
   z-index: 999;
   opacity: 0.5;
 }
@@ -832,7 +843,8 @@ const NewsList = [
   height: 185px;
   background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
   position: absolute;
-  top: 4px;
+  top: 2px;
+  left: 4px;
   z-index: 999;
   opacity: 0.5;
 }
@@ -858,15 +870,9 @@ const NewsList = [
 .colLeft img {
   width: 97%;
   overflow: hidden;
-  height: 98%;
+  height: 100%;
 }
-.imgDivFirst {
-  width: 100%;
-  height: 185px;
-  padding: 36px 30px;
-  /* background-size: scale(2); */
-  /* background-image: url("../static/indexView/ourServices-second.jpg"); */
-}
+
 .imgDivFirst .colLeftData {
   width: 100%;
 }
