@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'JT-official',
+    title: '上海疆通科技有限公司',
     htmlAttrs: {
       lang: 'zh'
     },
