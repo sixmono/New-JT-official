@@ -122,7 +122,7 @@
             v-for="(ourServicesItem, ourServicesIndex) in ourServicesList"
             :tab="ourServicesItem.tabs"
           >
-            <a-row :gutter="[10, 10]">
+            <a-row :gutter="[10, 10]" style="margin-top: 2px">
               <a-col :span="8" style="padding: 0">
                 <div class="colLeft">
                   <img
@@ -139,7 +139,7 @@
                 <div class="masking"></div>
               </a-col>
               <a-col :span="16">
-                <a-row :gutter="[10, 10]">
+                <a-row :gutter="[16, 16]">
                   <a-col
                     :span="ourServicesItemSon.span"
                     v-for="(
@@ -336,7 +336,6 @@ const ourServicesList = [
         img: require("../static/indexView/index-ourServices-4.jpg"),
       },
       {
-        rightHeight: 185,
         span: "14",
         title: "作业流SOP类",
         data:
@@ -344,7 +343,6 @@ const ourServicesList = [
         img: require("../static/indexView/index-ourServices-5.jpg"),
       },
       {
-        rightHeight: 185,
         span: "24",
         title: "数字孪生仿真类",
         data:
@@ -362,7 +360,6 @@ const ourServicesList = [
     img: require("../static/indexView/index-ourServices-third.jpg"),
     cardData: [
       {
-        rightHeight: 370,
         span: "24",
         title: "智能诊断与应急处置平台",
         data:
@@ -821,20 +818,23 @@ const NewsList = [
   width: 100%;
   height: 185px;
   padding: 36px 30px;
-  /* background-size: scale(2); */
-  /* background-image: url("../static/indexView/ourServices-second.jpg"); */
 }
 
 .imgDivFirst img {
+  width: 100%;
   height: 185px;
+}
+.imgDivFirst .colLeftData {
+  width: 100%;
 }
 
 .ourServices .masking {
-  width: 98% !important;
+  width: 97% !important;
   height: 380px;
   background: linear-gradient(135deg, #294dce 0%, rgba(144, 183, 255, 0.16) 100%);
   position: absolute;
   top: 2px;
+  left: 2px;
   z-index: 999;
   opacity: 0.5;
 }
@@ -871,10 +871,6 @@ const NewsList = [
   width: 97%;
   overflow: hidden;
   height: 100%;
-}
-
-.imgDivFirst .colLeftData {
-  width: 100%;
 }
 
 /* tabs样式 */

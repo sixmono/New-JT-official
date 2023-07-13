@@ -13,7 +13,7 @@
       </div>
     </div>
     <!-- 问题与挑战 -->
-
+    <!-- :animated="false" 动画效果 -->
     <a-tabs v-model:activeKey="activeKey" @change="handleChange">
       <a-tab-pane
         v-for="(tabsItem, tabsIndex) in tabsList"
@@ -587,7 +587,7 @@ const tabsList = [
   top: 0;
 }
 .headerBody {
-  padding: 100px 20% 0;
+  padding: 5% 20% 0;
   position: absolute;
   top: 0;
 }
@@ -655,7 +655,7 @@ h4 {
 }
 .solutionCard {
   text-align: center;
-  height: 220px;
+  height: 240px;
   background: #ffffff;
   border: 1px solid #ededed;
 }
@@ -676,7 +676,7 @@ h4 {
 }
 .solutionCardTwo {
   text-align: center;
-  height: 220px;
+  height: 240px;
   background: #ffffff;
   border: 1px solid #ededed;
 }

@@ -322,7 +322,7 @@ const customersList = [
   top: 0;
 }
 .headerBody {
-  padding: 100px 20% 0;
+  padding: 5% 20% 0;
   position: absolute;
   top: 0;
 }
