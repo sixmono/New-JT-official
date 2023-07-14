@@ -15,6 +15,9 @@ export default {
         content: "0220b95b13c51f1a7660a15d6c94f3e0",
       },
       {
+        name:"msvalidate.01" ,content:"BC3A30D71F43189937E2DB091806B5EF"
+      },
+      {
         name: "google-site-verification",
         content: "uJUqcqU50MLClkz-RLAd0tdNR3pqCNw46ZyjsO8UlB0",
       },
