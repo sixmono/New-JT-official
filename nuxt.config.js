@@ -18,6 +18,7 @@ export default {
         name: "google-site-verification",
         content: "uJUqcqU50MLClkz-RLAd0tdNR3pqCNw46ZyjsO8UlB0",
       },
+      { name:"sogou_site_verification", content:"NkJCTHtbGR" },
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
       {
