@@ -12,7 +12,7 @@ export default {
       { name: "sogou_site_verification", content: "NkJCTHtbGR" },
       {
         name: "360-site-verification",
-        content: "74bca292a773d0a220222fb51297144c",
+        content: "0220b95b13c51f1a7660a15d6c94f3e0",
       },
       {
         name: "google-site-verification",
