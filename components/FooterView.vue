@@ -4,7 +4,7 @@
       <h1>加入我们</h1>
       <h4>Join us</h4>
       <a-row :gutter="100">
-        <a-col :span="18">
+        <a-col :span="16">
           <a-row>
             <a-col :span="12">
               <input
@@ -58,7 +58,7 @@
             <a-button type="primary" class="btn" @click="submitClick">提交</a-button>
           </a-row>
         </a-col>
-        <a-col :span="6" style="color: white">
+        <a-col :span="8" style="color: white: padding-left: 0;padding-right: 0;">
           <h2 style="font-size: 16px">上海疆通科技有限公司</h2>
           <h3>邮箱：sales@jungt.com</h3>
           <div>
@@ -67,7 +67,7 @@
               src="../static/FooterView/WeChat-official-account.png"
               alt=""
             />
-            <div style="text-align: center; width: 110px; margin-top: 6px">
+            <div style="text-align: center; width: 110px; margin-top: 6px;color: #ffffff;">
               官方公众号
             </div>
           </div>

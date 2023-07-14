@@ -21,7 +21,7 @@
   position: relative;
 }
 .logo {
-  padding: 30px 0 0 360px;
+  padding: 13px 0 0 18%;
 }
 .tabs {
   width: 50%;
