@@ -10,6 +10,8 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "baidu-site-verification", content: "codeva-PT3yV321fk" },
       { name: "sogou_site_verification", content: "NkJCTHtbGR" },
+      { httpEquiv:"Content-Type",content:"text/html;charset=gb2312"},
+      { name:"sogou_site_verification" ,content:"NkJCTHtbGR" },
       {
         name: "360-site-verification",
         content: "0220b95b13c51f1a7660a15d6c94f3e0",
