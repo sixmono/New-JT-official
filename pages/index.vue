@@ -347,7 +347,7 @@ const ourServicesList = [
         title: "数字孪生仿真类",
         data:
           "现实与虚拟镜像同步，AR是人与物理世界实时沟通的桥梁，是数字孪生的最佳运行环境。",
-        img: require("../static/indexView/index-ourServices-1.jpg"),
+        img: require("../static/indexView/index-ourServices-3.jpg"),
       },
     ],
   },
@@ -364,7 +364,14 @@ const ourServicesList = [
         title: "智能诊断与应急处置平台",
         data:
           "合规处置，往往需在很短的时间里，根据有限的信息，针对不确定的需求，向不同对象快速分派有限的资源，做出最优决策，对处置行为进行指导和监督，事后复盘流程再造，形成闭环管理。",
-        img: require("../static/indexView/index-ourServices-2.jpg"),
+        img: require("../static/indexView/index-ourServices-6.jpg"),
+      },
+      {
+        span: "24",
+        title: "数据透视一体化模型",
+        data:
+          "工厂等电气设备众多的场景，往往数据具有复杂性。针对不同设备，将设备状态通过传感器等方式监测，统一加载进大模型中，打通IT与OT部分。可使工作人员利用MR交互对数据直观透视，纵控全场。",
+        img: require("../static/indexView/index-ourServices-7.jpg"),
       },
     ],
   },
@@ -374,8 +381,23 @@ const ourServicesList = [
     title: "概述",
     data:
       "所有的数字化建设都是建立在数据处理的基础之上，数据中心的建造专业性要求极高，出于成本考虑，有时还会出现新旧系统搭建的需求，这种需求更是难上加难，疆通拥有多年数据中心成功建设经验，可以为企业的数字化建设保驾护航。",
-    img: require("../static/indexView/index-ourServices-third.jpg"),
-    cardData: [],
+    img: require("../static/indexView/index-ourServices-fourth.jpg"),
+    cardData: [
+      {
+        span: "24",
+        title: "数据中心智能化运维系统",
+        data:
+          "数据中心中的设备数量庞大，如何进行设备管理和维护是一个重要的问题。通过智能化运维系统，可以实现设备的自动化管理和维护，包括设备状态监测、故障预测、设备维护等，从而提高设备的可靠性和稳定性，降低管理和维护成本。",
+        img: require("../static/indexView/index-ourServices-8.jpg"),
+      },
+      {
+        span: "24",
+        title: "智能安全化数据中心系统",
+        data:
+          "利用打通IT与OT端的数据分析，建立数据中心的知识图谱模型，结合机器学习算法，在数据透视的角度对未来可能出现的问题进行预测分析，为数据中心的安全性保驾护航。",
+        img: require("../static/indexView/index-ourServices-2.jpg"),
+      },
+    ],
   },
 ];
 // if (ourServicesList.cardData.length <= 1) {
