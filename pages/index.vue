@@ -1021,10 +1021,10 @@ h3 {
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   display: -webkit-box;
   word-break: break-all;
-  width: 280px;
+  width: 100%;
   white-space: nowrap;
   margin: 20px 0 30px 0;
 }
