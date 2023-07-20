@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="main">
-      <h1>加入我们</h1>
-      <h4>Join us</h4>
+      <h1>联系我们</h1>
+      <h4>Contact Us</h4>
       <a-row :gutter="100">
         <a-col :span="16">
           <a-row>
@@ -67,7 +67,9 @@
               src="../static/FooterView/WeChat-official-account.png"
               alt=""
             />
-            <div style="text-align: center; width: 110px; margin-top: 6px;color: #ffffff;">
+            <div
+              style="text-align: center; width: 110px; margin-top: 6px; color: #ffffff"
+            >
               官方公众号
             </div>
           </div>

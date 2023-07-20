@@ -511,19 +511,19 @@ const tabsList = [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
             title: "自动化运维：",
-            data: "通过引入自动化工具和技术，对数据中心的运维流程进行智能化升级。",
+            data: "引入自动化工具和技术，对数据中心的运维流程进行智能化升级。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
             title: "智能安全监测： ",
-            data: "通过引入安全监测工具和技术，对数据中心的安全性进行实时监测和预警。",
+            data: "引入安全监测工具和技术，对数据中心的安全性进行实时监测和预警。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
             title: "云计算平台建设：",
-            data: "通过引入云计算技术和工具，建设数据中心的云计算平台。",
+            data: "引入云计算技术和工具，建设数据中心的云计算平台。",
             span: 8,
           },
         ],
@@ -568,7 +568,7 @@ const tabsList = [
             span: 12,
           },
           {
-            value: "提高数据中心的效率",
+            value: "数据中心运维智能化",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 12,
           },
