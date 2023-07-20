@@ -1010,6 +1010,7 @@ h3 {
 }
 .news .card {
   border-left: 1px solid #efefef;
+  height: 100%;
   background-color: #ffffff;
   padding: 42px 25px;
 }
