@@ -247,9 +247,9 @@ onMounted(() => {
 });
 const activeKey = ref("1");
 const activeKeyList = ref("1");
-const viewMoreClick = () => {
-  router.push({ path: "/about" });
-};
+// const viewMoreClick = () => {
+//   router.push({ path: "/about" });
+// };
 const video = ref(true);
 
 const handleClick = () => {
