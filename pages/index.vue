@@ -243,8 +243,6 @@ onMounted(() => {
   ) {
     window.location.href =
       "https://jt-phone-1312712349.cos.ap-shanghai.myqcloud.com/index.html"; //手机
-  } else {
-    window.location.href = "https://www.jungt.com/"; //电脑
   }
 });
 const activeKey = ref("1");
