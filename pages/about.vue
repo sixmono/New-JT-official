@@ -80,7 +80,7 @@
                 class="certificateCol"
               >
                 <div style="text-align: center">
-                  <img :src="certificate.img" style="height: 100%;margin: 0 auto" />
+                  <img class="certificateCol-img" :src="certificate.img" style="height: 90%;margin: 0 auto;width: 70%;" />
                   <div style="text-align: center; margin-top: 25px">
                     {{ certificate.data }}
                   </div>
@@ -439,12 +439,13 @@ const customersList = [
 }
 .certificateRow :nth-child(1) img {
   height: 100%;
-  width: 60%;
+  width: 80%;
 }
-.certificateCol :nth-child(2){
-  width: 100%;
+
+/* .certificateCol-img{
+  width: 80%;
   height: 100%;
-}
+} */
 .semicircle {
   height: 220px;
   position: absolute;

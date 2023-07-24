@@ -98,7 +98,7 @@
           <div style="display: flex">
             <img
               :src="require(`../static/indexView/${solutionItem.img}.png`)"
-              class="img"
+              class="SolutionImg"
             />
             <div>
               <div class="topTitle">{{ solutionItem.title }}</div>
@@ -207,8 +207,13 @@
     <div class="news">
       <h1>新闻资讯</h1>
       <h4>News</h4>
-      <div class="newsMain" style="display: flex">
-        <div class="card" v-for="(NewsItem, NewsIndex) in NewsList" :key="NewsIndex">
+      <a-row class="newsMain" style="display: flex">
+        <a-col
+          :span="8"
+          class="card"
+          v-for="(NewsItem, NewsIndex) in NewsList"
+          :key="NewsIndex"
+        >
           <img src="../static/indexView/timing.png" alt="" /><span class="cardDate">{{
             NewsItem.date
           }}</span>
@@ -217,8 +222,8 @@
           </div>
           <a :href="NewsItem.href"><a-button>了解更多</a-button></a>
           <img style="margin-top: 40px; width: 100%" :src="NewsItem.img" alt="" />
-        </div>
-      </div>
+        </a-col>
+      </a-row>
     </div>
     <FooterView />
   </div>
@@ -403,8 +408,9 @@ const ourServicesList = [
       {
         span: "24",
         title: "智能安全化数据中心系统",
-        data:
-          "利用打通IT与OT端的数据分析，建立数据中心的知识图谱模型，结合机器学习算法，在数据透视的角度对未来可能出现的问题进行预测分析，为数据中心的安全性保驾护航。",
+        data: `配电系统：UPS系统、配电柜、发电机系统、...
+          环境控制系统：精密空调、采暖及通风空调、循环水系统...
+          弱电系统：智能化系统、综合布线、管线桥架...`,
         img: require("../static/indexView/index-ourServices-2.jpg"),
       },
     ],
@@ -731,7 +737,7 @@ const NewsList = [
   margin-bottom: 60px;
   margin: 0;
 }
-.solution img {
+.SolutionImg {
   width: 60px;
   height: 100%;
   margin: 45px 20px;
@@ -762,7 +768,6 @@ const NewsList = [
   color: #333333;
   margin-top: 20px;
   text-overflow: ellipsis;
-  font-weight: 700;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -770,7 +775,14 @@ const NewsList = [
   word-break: break-all;
   display: inline-block;
 }
-@media only screen and(max-width: 1280px) {
+/* @media only screen and (max-width: 500px) {
+} */
+@media only screen and (max-width: 1300px) {
+  .SolutionImg {
+    width: 60px !important;
+    height: 100% !important;
+    margin: 45px 0 !important;
+  }
   .solution .topTitle {
     font-size: 14px;
     color: #333333;
@@ -783,6 +795,7 @@ const NewsList = [
     word-break: break-all;
     display: inline-block;
   }
+
   .solution .bottomTitle {
     margin: 12px 35px 33px 0;
     font-size: 12px;
@@ -799,14 +812,14 @@ const NewsList = [
 }
 
 .solution .bottomTitle {
-  margin: 12px 35px 33px 0;
+  margin: 12px 10% 33px 0;
   font-size: 16px;
   font-weight: 400;
   color: #999999;
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   display: -webkit-box;
   word-break: break-all;
   display: inline-block;
@@ -842,7 +855,7 @@ const NewsList = [
   width: 30px;
   height: 3px;
   background: #ffffff;
-  margin: 10px 0;
+  margin: 10px 0 0;
   position: relative;
   z-index: 1000;
 }
@@ -859,7 +872,22 @@ const NewsList = [
 .imgDivFirst .colLeftData {
   width: 100%;
 }
-
+.colLeftData {
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  position: relative;
+  z-index: 1000;
+  font-weight: 400;
+  white-space: pre-line;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  word-break: break-all;
+  display: inline-block;
+}
 .ourServices .masking {
   width: 97% !important;
   height: 380px;
@@ -895,6 +923,7 @@ const NewsList = [
   position: relative;
   z-index: 1000;
   font-weight: 400;
+  white-space: pre-line;
 }
 .colLeft .colLeftData {
   width: 100%;
@@ -1031,11 +1060,11 @@ h3 {
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   display: -webkit-box;
   word-break: break-all;
   width: 100%;
-  white-space: nowrap;
+  height: 50px;
   margin: 20px 0 30px 0;
 }
 .news .cardDate {
