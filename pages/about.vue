@@ -80,7 +80,7 @@
                 class="certificateCol"
               >
                 <div style="text-align: center">
-                  <img class="certificateCol-img" :src="certificate.img" style="height: 90%;margin: 0 auto;width: 70%;" />
+                  <img class="certificateCol-img" :src="certificate.img" style="height: 90%;margin: 0 auto;width: 60%;" />
                   <div style="text-align: center; margin-top: 25px">
                     {{ certificate.data }}
                   </div>
