@@ -1,18 +1,21 @@
 <template>
   <div class="containerHeader">
-    <img src="../static/HeaderView/JT-logo.png" class="logo" alt="" />
-    <div class="topText" style="position: absolute; top: 13px; left: 23%">
-      <div
-        style="
-          font-size: 36px;
-          color: #fff;
-          font-weight: 600;
-          font-family: PingFangSC-Semibold, PingFang SC;
-        "
-      >
-        疆通科技
+    <div class="topText" style="position: absolute; top: 10px; left: 20%; display: flex">
+      <img src="../static/HeaderView/JT-logo.png" class="logo" alt="" />
+      <div style="margin-left: 10px">
+        <div
+          style="
+            font-size: 36px;
+            color: #fff;
+            font-weight: 600;
+
+            font-family: PingFangSC-Semibold, PingFang SC;
+          "
+        >
+          疆通科技
+        </div>
+        <div style="font-size: 14px; color: #fff">Jiangtong Technology</div>
       </div>
-      <div style="font-size: 14px; color: #fff">Jiangtong Technology</div>
     </div>
     <div class="tabs">
       <div class="triangle"></div>
@@ -34,8 +37,8 @@
   position: relative;
 }
 .logo {
-  padding: 13px 0 13px 18%;
-  height: 100%;
+  /* padding: 13px 0 13px 18%; */
+  height: 80px;
 }
 .tabs {
   width: 50%;

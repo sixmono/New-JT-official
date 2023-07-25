@@ -11,7 +11,7 @@
       <div class="companyProfileLeft">
         <div class="top">
           <h1>走进疆通</h1>
-          <h2>About</h2>
+          <h2>Walk into Jiangtong</h2>
         </div>
         <div style="margin-top: 50px">
           <!-- muted是否静音 -->
@@ -27,7 +27,7 @@
           <h1>上海疆通</h1>
           <h1>科技有限公司</h1>
           <h4 style="margin-top: 42px">
-            上海疆通科技有限公司于2016年成立，是高新技术企业、科技型中小企业、上海市华东师范大学毕业生实习基地、上海市人工智能行业协会会员单位，拥有电子与智能化工程专业承包二级资质和ISO9001质量体系认证，公司拥有软硬件自主研发能力，一直致力于智能应急处置系统和数据中心的智能化建设。
+            上海疆通科技有限公司是高新技术企业、科技型中小企业、上海市华东师范大学毕业生实习基地、上海市人工智能行业协会会员单位，拥有电子与智能化工程专业承包二级资质和ISO9001质量体系认证，公司拥有软硬件自主研发能力，一直致力于智能应急处置系统和数据中心的智能化建设。
           </h4>
           <h4>
             主营业务是以物联传感为依托、以算法模型赋能、以MR图文呈现，实现IT/OT/MR互通的低代码系统集成方案，赋能企业顺利开展数字化转型。
@@ -57,7 +57,7 @@
       <h4>Core advantages</h4>
       <div class="cardAll">
         <a-row :gutter="100">
-          <a-col :span="10" v-for="(cardItem, cardIndex) in cardList" :key="cardIndex">
+          <a-col :span="11" v-for="(cardItem, cardIndex) in cardList" :key="cardIndex">
             <div style="display: flex; background-color: #ffffff">
               <img :src="cardItem.img" class="coreAdvantageImg" />
               <div>
@@ -73,7 +73,7 @@
       </div>
       <div class="cardAllTwo">
         <a-row :gutter="100">
-          <a-col :span="8" v-for="(cardItem, cardIndex) in cardList2" :key="cardIndex">
+          <a-col :span="9" v-for="(cardItem, cardIndex) in cardList2" :key="cardIndex">
             <div style="display: flex; background-color: #ffffff">
               <img :src="cardItem.img" class="coreAdvantageImg" />
               <div>
@@ -101,10 +101,10 @@
               class="SolutionImg"
             />
             <div>
-              <div class="topTitle">{{ solutionItem.title }}</div>
-              <div style="font-weight: 900">
+              <div style="font-weight: 900; font-size: 24px; margin-top: 10px">
                 {{ solutionItem.title2 }}
               </div>
+              <div class="topTitle">{{ solutionItem.title }}</div>
               <div class="bottomTitle">{{ solutionItem.data }}</div>
             </div>
           </div>
@@ -378,7 +378,7 @@ const ourServicesList = [
         span: "24",
         title: "智能诊断与应急处置平台",
         data:
-          "合规处置，往往需在很短的时间里，根据有限的信息，针对不确定的需求，向不同对象快速分派有限的资源，做出最优决策，对处置行为进行指导和监督，事后复盘流程再造，形成闭环管理。",
+          "平台可根据合规要求，在很短的时间里，根据有限的信息，针对不确定的需求，向不同对象快速分派有限的资源，做出最优决策，对处置行为进行指导和监督，事后复盘流程再造，形成闭环管理。",
         img: require("../static/indexView/index-ourServices-6.jpg"),
       },
       {
@@ -400,18 +400,18 @@ const ourServicesList = [
     cardData: [
       {
         span: "24",
-        title: "数据中心智能化运维系统",
-        data:
-          "数据中心中的设备数量庞大，如何进行设备管理和维护是一个重要的问题。通过智能化运维系统，可以实现设备的自动化管理和维护，包括设备状态监测、故障预测、设备维护等，从而提高设备的可靠性和稳定性，降低管理和维护成本。",
-        img: require("../static/indexView/index-ourServices-8.jpg"),
-      },
-      {
-        span: "24",
-        title: "智能安全化数据中心系统",
+        title: "数据中心智能化建设",
         data: `配电系统：UPS系统、配电柜、发电机系统、...
           环境控制系统：精密空调、采暖及通风空调、循环水系统...
           弱电系统：智能化系统、综合布线、管线桥架...`,
         img: require("../static/indexView/index-ourServices-2.jpg"),
+      },
+      {
+        span: "24",
+        title: "数据中心智能化运维系统",
+        data:
+          "数据中心中的设备种类多、数量大、维护要求高，通过智能化运维系统，可以实现设备的自动化管理和维护，包括设备状态监测、故障预测等，从而提高设备的可靠性和稳定性，降低管理和维护成本。",
+        img: require("../static/indexView/index-ourServices-8.jpg"),
       },
     ],
   },
@@ -575,7 +575,6 @@ const NewsList = [
   color: #333333;
   line-height: 56px;
   margin: 0;
-  font-family: fantasy;
   font-weight: bold;
 }
 .companyProfileLeft h2 {
@@ -598,7 +597,6 @@ const NewsList = [
   color: #333333;
   font-size: 50px;
   margin: 0;
-  font-family: fantasy;
   font-weight: bold;
 }
 /* 文字内容 */
@@ -643,7 +641,6 @@ const NewsList = [
   color: #333333;
   line-height: 56px;
   margin: 60px 0 0 0;
-  font-family: fantasy;
   font-weight: bold;
 }
 
@@ -694,13 +691,12 @@ const NewsList = [
   display: -webkit-box;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-family: fantasy;
   font-weight: 700;
 }
 .coreAdvantageImg {
   width: 60px;
   height: 100%;
-  margin: 15px 20px 15px 10px;
+  margin: 25px 20px 25px 10px;
 }
 .coreAdvantage .bottomTitle {
   font-size: 14px;
@@ -728,7 +724,6 @@ const NewsList = [
   margin: 0;
   font-size: 40px;
   color: #333333;
-  font-family: fantasy;
   font-weight: bold;
 }
 .solution h4 {
@@ -740,7 +735,7 @@ const NewsList = [
 .SolutionImg {
   width: 60px;
   height: 100%;
-  margin: 45px 20px;
+  margin: 45px 20px 45px;
 }
 .solution .cardAll {
   display: flex;
@@ -766,14 +761,13 @@ const NewsList = [
 .solution .topTitle {
   font-size: 18px;
   color: #333333;
-  margin-top: 20px;
+  margin-top: 10px;
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   display: -webkit-box;
   word-break: break-all;
-  display: inline-block;
 }
 /* @media only screen and (max-width: 500px) {
 } */
@@ -797,7 +791,7 @@ const NewsList = [
   }
 
   .solution .bottomTitle {
-    margin: 12px 35px 33px 0;
+    margin: 12px 20px 33px 0;
     font-size: 12px;
     font-weight: 400;
     color: #999999;
@@ -812,7 +806,7 @@ const NewsList = [
 }
 
 .solution .bottomTitle {
-  margin: 12px 10% 33px 0;
+  margin: 12px 25px 33px 0;
   font-size: 16px;
   font-weight: 400;
   color: #999999;
@@ -832,14 +826,12 @@ const NewsList = [
   font-size: 40px;
   color: #333333;
   margin: 0;
-  font-family: fantasy;
   font-weight: bold;
 }
 .ourServices h4 {
   font-size: 26px;
   color: #cccccc;
   margin-bottom: 60px;
-  font-family: fantasy;
 }
 .ourServices .colDIv {
   width: 98%;
@@ -863,6 +855,12 @@ const NewsList = [
   width: 100%;
   height: 185px;
   padding: 36px 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box !important;
+  word-break: break-all;
 }
 
 .imgDivFirst img {
@@ -871,6 +869,13 @@ const NewsList = [
 }
 .imgDivFirst .colLeftData {
   width: 100%;
+  white-space: pre-line;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  display: -webkit-box !important ;
+  word-break: break-all;
 }
 .colLeftData {
   font-size: 14px;
@@ -883,10 +888,9 @@ const NewsList = [
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  display: -webkit-box !important ;
   word-break: break-all;
-  display: inline-block;
 }
 .ourServices .masking {
   width: 97% !important;
@@ -913,7 +917,6 @@ const NewsList = [
   font-size: 18px;
   position: relative;
   z-index: 1000;
-  font-family: fantasy;
   font-weight: 700;
 }
 .colLeftData {
@@ -958,7 +961,6 @@ const NewsList = [
   padding: 60px 20% 0;
   font-size: 40px;
   color: #ffffff;
-  font-family: fantasy;
   font-weight: 900;
   margin: 0;
 }
@@ -1038,7 +1040,6 @@ h3 {
   font-size: 40px;
   color: #333333;
   margin: 0;
-  font-family: fantasy;
   font-weight: 700;
 }
 

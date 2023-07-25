@@ -208,13 +208,13 @@ const tabsList = [
           {
             img: require("../static/SolutionView/solution-fourth.png"),
             title: "数据打通",
-            data: "实现信息无缝衔接、畅通数据通路",
+            data: "信息无缝衔接、畅通数据通路",
             span: 6,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
             title: "价值创造",
-            data: "创意升华、焕发出更高层次的价值",
+            data: "创意升华、焕发出更高层次价值",
             span: 6,
           },
         ],
@@ -640,13 +640,42 @@ h4 {
   font-size: 18px;
   color: #333333;
   padding: 0 10px 0 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box !important;
+  word-break: break-all;
 }
 .changeCardData {
   font-size: 16px;
   font-weight: 400;
   color: #999999;
-  padding: 0 20px 26px 0;
+  padding: 0 20px 0 0;
   line-height: 22px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  display: -webkit-box !important;
+  word-break: break-all;
+}
+@media only screen and (max-width: 1300px) {
+  .solutionCardData {
+    padding: 20px 0 35px !important;
+    font-size: 16px;
+    font-weight: 400;
+    color: #999999;
+  }
+  .solutionCardDataTwo {
+    padding: 20px 0 35px !important;
+    font-size: 16px;
+    font-weight: 400;
+    color: #999999;
+  }
+  .changeCard img {
+    padding: 40px 0;
+  }
 }
 /* ------------------------解决方案----------------------- */
 .solution {
@@ -658,6 +687,7 @@ h4 {
   height: 240px;
   background: #ffffff;
   border: 1px solid #ededed;
+  overflow: hidden;
 }
 .solutionCardTitle {
   font-size: 18px;
@@ -673,19 +703,21 @@ h4 {
 .solutionTwo {
   padding: 60px 20%;
   background: #ffffff;
+  overflow: hidden;
 }
 .solutionCardTwo {
   text-align: center;
   height: 240px;
   background: #ffffff;
   border: 1px solid #ededed;
+  overflow: hidden;
 }
 .solutionCardTitleTwo {
   font-size: 18px;
   color: #333333;
 }
 .solutionCardDataTwo {
-  padding: 20px 40px 35px;
+  padding: 20px 30px 35px;
   font-size: 16px;
   font-weight: 400;
   color: #999999;

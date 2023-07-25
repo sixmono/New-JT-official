@@ -1,5 +1,35 @@
+import cheerio from "cheerio"
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  ssr: true,
+  hooks: {
+    'render:route': (url, result) => {
+       const ara= cheerio.load(result.html,{decodeEntities: false});
+       ara(`meta`).removeAttr('data-n-head');
+       result.html = ara.html()
+     },
+     generate: {
+      page(page) {
+        const cheerio = require("cheerio");
+        const $ = cheerio.load(page.html, { decodeEntities: false });
+ 
+        const attrs = [
+          "data-n-head-ssr",
+          "data-n-head",
+          "data-hid",
+          "data-vue-ssr-id",
+          "data-server-rendered",
+        ];
+ 
+        attrs.forEach(value => {
+          $("*[" + value + "]").removeAttr(value);
+        });
+        
+        page.html = $.html();
+      }
+    }
+   },
   head: {
     title: "上海疆通科技有限公司",
     htmlAttrs: {
@@ -27,7 +57,7 @@ export default {
       // 神马
       {
         name: "shenma-site-verification",
-        content: "98db2ba1debf9a2cf8f63cb4c78638cd_1690248250",
+        content: "98db2ba1debf9a2cf8f63cb4c78638cd_1690276336",
       },
       { "http-equiv": "Content-Type", content: "text/html;charset=gb2312" },
       { hid: "description", name: "description", content: "" },
