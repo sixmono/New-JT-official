@@ -155,10 +155,21 @@ export default Vue.extend({
 });
 </script>
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive ,onMounted} from "vue";
 
 const activeKey = ref<string>("1");
 
+
+onMounted(() => {
+  if (
+    navigator.userAgent.match(
+      /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+    )
+  ) {
+    window.location.href =
+      "https://jt-phone-1312712349.cos.ap-shanghai.myqcloud.com/index.html#/pages/about/about"; //手机
+  }
+});
 const tabsListData = [
   {
     tabs: "企业文化",

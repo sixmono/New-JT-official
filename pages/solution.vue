@@ -137,7 +137,18 @@ export default Vue.extend({
 });
 </script>
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+  if (
+    navigator.userAgent.match(
+      /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+    )
+  ) {
+    window.location.href =
+      "https://jt-phone-1312712349.cos.ap-shanghai.myqcloud.com/index.html#/pages/solution/Consulting-Training"; //手机
+  }
+});
 
 const activeKey = ref("1");
 const title = ref(
@@ -174,14 +185,14 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-third.png"),
-            title: "数字梳理",
+            title: "数字梳理：",
             data:
               "所有行业都值得数字化重做一遍，但是缺少了数字化所打造的“以数据支撑与驱动的数字化企业”。",
             span: 12,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "数字基础",
+            title: "数字基础：",
             data: "无论是智能化，还是产业链生态的大协同，都会缺乏土壤与根基。",
             span: 12,
           },
