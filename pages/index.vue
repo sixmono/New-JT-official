@@ -255,6 +255,7 @@ const activeKeyList = ref("1");
 // const viewMoreClick = () => {
 //   router.push({ path: "/about" });
 // };
+
 const video = ref(true);
 
 const handleClick = () => {
@@ -273,6 +274,7 @@ const cardList = [
     data: "自研物联数字系统支持接入旧设备、旧系统，降本的同时避免受制于供应商。",
   },
 ];
+
 const cardList2 = [
   {
     img: require("../static/indexView/coreAdvantage-third.png"),
@@ -282,7 +284,7 @@ const cardList2 = [
   {
     img: require("../static/indexView/coreAdvantage-second.png"),
     title: "放心：服务全国",
-    data: "覆盖全国的专业服务团队， 多个全球500强企业案例。",
+    data: "覆盖全国的专业服务团队，多个全球500强企业案例。",
   },
 ];
 
@@ -309,7 +311,7 @@ const solutionList = [
     img: "solution-fourth",
     title: "复盘问题",
     title2: "重构：",
-    data: "IT/OT/MR低代码互联",
+    data: "IT/OT低代码互联",
   },
 ];
 const ourServicesList = [
