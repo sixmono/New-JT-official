@@ -284,7 +284,7 @@ const cardList2 = [
   {
     img: require("../static/indexView/coreAdvantage-second.png"),
     title: "放心：服务全国",
-    data: "覆盖全国的专业服务团队，多个全球500强企业案例。",
+    data: "覆盖全国的专业团队，拥有多个全球500强企业案例。",
   },
 ];
 
