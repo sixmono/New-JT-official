@@ -116,6 +116,7 @@
               <div class="effectsCard">
                 <div class="effectsData">
                   <div class="value">{{ effectsItem.value }}</div>
+                  <div class="data">{{ effectsItem.data }}</div>
                   <img class="effectsImg" :src="effectsItem.img" />
                 </div>
               </div>
@@ -185,16 +186,24 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-third.png"),
-            title: "数字梳理：",
+            title: "数字化转型趋势：",
             data:
-              "所有行业都值得数字化重做一遍，但是缺少了数字化所打造的“以数据支撑与驱动的数字化企业”。",
-            span: 12,
+              "需要了解适本企业发展的数字化趋势，企业管理层缺乏对数字化转型统一的关键点和战略知",
+            span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "数字基础：",
-            data: "无论是智能化，还是产业链生态的大协同，都会缺乏土壤与根基。",
-            span: 12,
+            title: "数字化竞争逻辑：",
+            data:
+              "在与同业市场竞争中，已有的数字化能否切中要害还只是带来成支出，数字化转型是否系统化。",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/solution-fourth.png"),
+            title: "数字化转型路径：",
+            data:
+              "无法判断最优数字化转型路径，已有数字化投入产出比是否合理，数字化战略创新摸索成本过高",
+            span: 8,
           },
         ],
       },
@@ -270,17 +279,23 @@ const tabsList = [
         h4: "Effects",
         effectsListSon: [
           {
-            value: "分析自身问题",
+            value: "实景解构数字化趋势",
+            data:
+              "实景共创，场景化共创数字化趋势方案，特邀嘉宾可赴世界级数字工厂游学，探寻企业数字化转型成功之道",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
           {
-            value: "定制化解决方案",
+            value: "走出数字化转型误区",
+            data:
+              "实战研讨，企业管理层学会数字化转型模型，解读数字化背后的核心逻辑，和专家研讨自身实际问题",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
           {
-            value: "实现创新落地",
+            value: "明晰数字化转型路径",
+            data:
+              "专家会诊，结合企业自身条件，解读经过实践论证的行业案例，给出企业数字化转型反馈意见",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
@@ -757,8 +772,9 @@ h4 {
 }
 .effectsData {
   padding-left: 30px;
-  display: flex;
+  /* display: flex; */
 }
+
 .condition {
   font-size: 16px;
   color: #333333;
@@ -766,11 +782,61 @@ h4 {
   width: 40px;
 }
 .value {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   color: #4486f3;
   /* margin-left: 20px; */
   font-family: DINAlternate-Bold, DINAlternate;
+}
+.data {
+  margin: 10px 10px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999999;
+}
+
+@media only screen and (max-width: 1150px) {
+  .effectsCard {
+    width: 100%;
+    height: 180px !important;
+    background: #ffffff;
+    border: 1px solid #ededed;
+    margin: 60px 0 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 1450px) {
+  .effectsCard {
+    width: 100%;
+    height: 160px;
+    background: #ffffff;
+    border: 1px solid #ededed;
+    margin: 60px 0 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .effectsTitle {
+    padding: 0;
+    font-size: 18px;
+    color: #333333;
+    width: 250px;
+  }
+  .effectsData {
+    padding-left: 10px;
+    /* display: flex; */
+  }
+  .value {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4486f3;
+    /* margin-left: 20px; */
+    font-family: DINAlternate-Bold, DINAlternate;
+  }
+  .data {
+    margin: 10px 10px 0 0;
+    font-size: 12px !important;
+  }
 }
 .effectsImg {
   position: absolute;
