@@ -517,18 +517,19 @@ const projectList = [
 const NewsList = [
   {
     date: "2023-07-10",
-    title: "疆通科技数字孪生展陈成果亮相2023世界人工智能大会",
-    img: require("../static/indexView/news-first.png"),
+    title: "疆通科技数字孪生展陈成果亮相2023世界人工智能大会。",
+    img: require("../static/indexView/news-second.png"),
     href:
       "https://mp.weixin.qq.com/s?__biz=MzIwMDg4MDQyMA==&mid=2247486101&idx=1&sn=8454250002409a838eeaaf7bc47c4cd1&chksm=96f732dea180bbc8cfc792d0b0e53e52aa3869dbe6f886b815e403b485b04754ca58964d4ead#rd",
   },
   {
     date: "2023-06-11",
-    title: "疆通与行业高端咨询公司深度合作",
-    img: require("../static/indexView/news-second.png"),
+    title: "疆通与行业高端咨询公司深度合作。",
+    img: require("../static/indexView/news-first.png"),
     href:
       "https://mp.weixin.qq.com/s?__biz=MzIwMDg4MDQyMA==&mid=2247486127&idx=1&sn=561f8b6ac6ae5dcdf461dd158f7c6808&chksm=96f732e4a180bbf2cd5355ec26ccd3997d1165e2e4d8e7da7a067cbd7e54a60570afe767b53a#rd",
   },
+
   {
     date: "2023-04-17",
     title: "疆通助力上海120急救中心，AR技术让急救加速",

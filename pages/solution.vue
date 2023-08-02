@@ -153,7 +153,7 @@ onMounted(() => {
 
 const activeKey = ref("1");
 const title = ref(
-  "与西门子中国研究院、中大咨询等国内外顶尖咨询公司深度合作，开展相应的咨询和共创课程，节省用户寻找各类业专家的时间，顶级专家齐聚一堂为用户打造可落地的数字化方案。"
+  "企业更愿意专注于生产服务，需要不同学科的专业人员以整体系统视角审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全面提高企业综合竞争力"
 );
 
 const handleChange = () => {
@@ -162,16 +162,16 @@ const handleChange = () => {
 
   if (activeKey.value === "1") {
     title.value =
-      "与西门子中国研究院、中大咨询等国内外顶尖咨询公司深度合作，开展相应的咨询和共创课程，节省用户寻找各类业专家的时间，顶级专家齐聚一堂为用户打造可落地的数字化方案。";
+      "企业更愿意专注于生产服务，需要不同学科的专业人员以整体系统视角审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全面提高企业综合竞争力";
   } else if (activeKey.value === "2") {
     title.value =
-      "通过MR眼镜的远程协助、SOP作业流、互动多媒体展示等功能，实现信息可视化、虚实融合、信息互动，解决信息的时空错位，丰富展示内容。";
+      "数字化时代，跨时空多维度解决问题将成为常态，MR虚实融合技术成为人与物理世界沟通的最佳环境";
   } else if (activeKey.value === "3") {
     title.value =
-      "通过集成信息技术（IT）、运营技术（OT）、增强现实技术(AR)深度融合，将经验知识、规则规范与数字化服务相结合，使智能化场景更易于快速落地，助力数字场景规模化应用。";
+      "通过集成信息技术（IT）、运营技术（OT）、增强现实技术(AR)深度融合，将经验知识、规则规范与数字化服务相结合，使智能化场景更易于快速落地，助力数字场景规模化应用";
   } else {
     title.value =
-      "通过引入各类物联网传感器集成技术，人工智能数据分析技术与数据图谱技术，将系统智能实时化，对数据中心基础设施流程管理和业务应用进行全面的升级和优化，以提高数据中心的可靠性、运行效率与安全性。";
+      "通过引入各类物联网传感器集成技术，人工智能数据分析技术与数据图谱技术，将系统智能实时化，对数据中心基础设施流程管理和业务应用进行全面的升级和优化，以提高数据中心的可靠性、运行效率与安全性";
   }
 };
 
@@ -186,21 +186,21 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-third.png"),
-            title: "数字化转型趋势：",
+            title: "数字化转型趋势",
             data:
-              "需要了解适本企业发展的数字化趋势，企业管理层缺乏对数字化转型统一的关键点和战略知",
+              "需要了解适合本企业发展的数字化趋势，企业管理层缺乏对数字化转型统一的关键点和战略认知",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "数字化竞争逻辑：",
+            title: "数字化竞争逻辑",
             data:
-              "在与同业市场竞争中，已有的数字化能否切中要害还只是带来成支出，数字化转型是否系统化。",
+              "在与同业市场竞争中，已有的数字化能否切中要害还只是带来成支出，数字化转型是否系统化",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
-            title: "数字化转型路径：",
+            title: "数字化转型路径",
             data:
               "无法判断最优数字化转型路径，已有数字化投入产出比是否合理，数字化战略创新摸索成本过高",
             span: 8,
@@ -247,7 +247,7 @@ const tabsList = [
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/solution-third.png"),
-            title: "主题演讲 ",
+            title: "主题演讲",
             data: "阐述内核、激发思维灵感",
             span: 6,
           },
@@ -313,20 +313,23 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "缺乏有效的解决方案：",
-            data: "挥决策的效率低下。",
+            title: "多维决策",
+            data:
+              "用户对服务的及时性、准确性要求高，缺少融合多维度数据的解决方案，指挥决策效率低",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
-            title: "人工巡检漏检和错检：",
-            data: "给企业带来损失。",
+            title: "流程教验",
+            data:
+              "新手流程不熟，上手慢;人工巡检易漏检、错检，点位巡检只能确定到达巡检点，难以确保查验巡检点异常状况",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "教学和展览受到时空限制：",
-            data: "限制用户的参与度和体验感。",
+            title: "虚实展示",
+            data:
+              "展览、教学、研发的实景搭建成本高、耗时长，受时空限制，无法互动展示更多内容",
             span: 8,
           },
         ],
@@ -339,20 +342,20 @@ const tabsList = [
         solutionListSon: [
           {
             img: require("../static/SolutionView/solution-third.png"),
-            title: "远程指挥，多维联动：",
-            data: "融合多维数据，实现高效指挥决策。",
+            title: "远程指挥，多维联动",
+            data: "融合多维数据，实现高效指挥决策",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "远程检修，专家指导： ",
-            data: "远程维护，实时解答疑难。",
+            title: "远程检修，专家指导",
+            data: "远程维护，实时解答疑难",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-third.png"),
-            title: "远程诊断，专家会诊：",
-            data: "智慧共谋，提供精准诊断与全方位解决方案。",
+            title: "远程诊断，专家会诊",
+            data: "智慧共谋，提供精准诊断与全方位解决方案",
             span: 8,
           },
         ],
@@ -365,20 +368,20 @@ const tabsList = [
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "视觉巡检，杜绝漏检：",
-            data: "巡视全程，确保每一处细微之处都被细心检视。",
+            title: "视觉巡检，杜绝漏检",
+            data: "巡视全程，确保每一处细微之处都被细心检视",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-third.png"),
-            title: "视觉制造，按图施工： ",
-            data: "精心演绎每个构思的蓝图，将想象变为现实。",
+            title: "视觉制造，按图施工",
+            data: "精心演绎每个构思的蓝图，将想象变为现实",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "视觉拣选，智慧物流：",
-            data: "用视觉的智慧，打造高效、无缝的物流服务。",
+            title: "视觉拣选，智慧物流",
+            data: "用视觉的智慧，打造高效、无缝的物流服务",
             span: 8,
           },
         ],
@@ -391,17 +394,21 @@ const tabsList = [
         h4: "Effects",
         effectsListSon: [
           {
-            value: "人和技术的分离",
+            value: "人和人分离",
+            data: "提高效率，跨越时空，随时连线专家辅助决策，降低沟通成本",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
           {
-            value: "知识固化在设备",
+            value: "人和技术分离",
+            data: "确保工作执行到位，知识固化在系统上，跟随教学、巡检，节省了用工成本",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
           {
-            value: "成本与沟通效率的提升",
+            value: "虚实同步互动",
+            data:
+              "虚拟环境中实现研发、仿真、教学、展示，不受时空限制，降低环境搭建和运行成本",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
@@ -419,14 +426,14 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-first.png"),
-            title: "缺乏有效的解决方案：",
-            data: "专业要求高、时间成本高。 ",
+            title: "缺乏有效的解决方案",
+            data: "专业要求高、时间成本高",
             span: 12,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
-            title: "部门沟通协调困难：",
-            data: "综合智能场景难落地。",
+            title: "部门沟通协调困难",
+            data: "综合智能场景难落地",
             span: 12,
           },
         ],
@@ -439,20 +446,20 @@ const tabsList = [
         solutionListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "实时监测：",
-            data: "利用先进的算法和感知技术，能够准确预测危险发生的可能性。",
+            title: "实时监测",
+            data: "利用先进的算法和感知技术，能够准确预测危险发生的可能性",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
-            title: "处置方案： ",
-            data: "快速定位源头、自动启动装置、远程操控设备等。",
+            title: "处置方案",
+            data: "快速定位源头、自动启动装置、远程操控设备等",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "高效运行：",
-            data: "有效避免潜在在的风险。",
+            title: "高效运行",
+            data: "有效避免潜在在的风险",
             span: 8,
           },
         ],
@@ -465,20 +472,20 @@ const tabsList = [
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "实时监测：",
-            data: "通过实时监测作业环境、作业人员的行为和设备状态。",
+            title: "实时监测",
+            data: "通过实时监测作业环境、作业人员的行为和设备状态",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "处置方案：",
-            data: "风险隔离、紧急停工、设备修复等，以确保作业安全和人员健康。",
+            title: "处置方案",
+            data: "风险隔离、紧急停工、设备修复等，以确保作业安全和人员健康",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "高效运行：",
-            data: "凭借着灵敏的预警机制和高效的处置能力，有效降低作业风险。",
+            title: "高效运行",
+            data: "凭借着灵敏的预警机制和高效的处置能力，有效降低作业风险",
             span: 8,
           },
         ],
@@ -514,16 +521,16 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-first.png"),
-            title: "技术问题：",
+            title: "技术问题",
             data:
-              "数据中心智能化建设需要应用各种先进的技术和工具，如人工智能、大数据、云计算等，这些技术的引入和应用需要大量的技术支持和投入。 ",
+              "数据中心智能化建设需要应用各种先进的技术和工具，如人工智能、大数据、云计算等，这些技术的引入和应用需要大量的技术支持和投入",
             span: 12,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
-            title: "安全风险：",
+            title: "安全风险",
             data:
-              "数据中心是企业重要的信息资产库，智能化建设可能带来新的安全隐患和风险，需要采取有效的安全防护和管理措施。",
+              "数据中心是企业重要的信息资产库，智能化建设可能带来新的安全隐患和风险，需要采取有效的安全防护和管理措施",
             span: 12,
           },
         ],
@@ -536,20 +543,20 @@ const tabsList = [
         solutionListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "自动化运维：",
-            data: "引入自动化工具和技术，对数据中心的运维流程进行智能化升级。",
+            title: "自动化运维",
+            data: "引入自动化工具和技术，对数据中心的运维流程进行智能化升级",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
-            title: "智能安全监测： ",
-            data: "引入安全监测工具和技术，对数据中心的安全性进行实时监测和预警。",
+            title: "智能安全监测",
+            data: "引入安全监测工具和技术，对数据中心的安全性进行实时监测和预警",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "云计算平台建设：",
-            data: "引入云计算技术和工具，建设数据中心的云计算平台。",
+            title: "云计算平台建设",
+            data: "引入云计算技术和工具，建设数据中心的云计算平台",
             span: 8,
           },
         ],
@@ -562,21 +569,20 @@ const tabsList = [
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "基础设施管理：",
-            data: "包括对数据中心的服务器、网络、存储等基础设施进行管理和监控。",
+            title: "基础设施管理",
+            data: "包括对数据中心的服务器、网络、存储等基础设施进行管理和监控",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "数据中心能耗管理：",
-            data: "通过引入智能化能源管理系统，对数据中心的能耗进行实时监测和控制。",
+            title: "数据中心能耗管理",
+            data: "通过引入智能化能源管理系统，对数据中心的能耗进行实时监测和控制",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "数据分析与挖掘：",
-            data:
-              "通过引入人工智能和大数据分析技术，对数据中心的海量数据进行挖掘和分析。",
+            title: "数据分析与挖掘",
+            data: "通过引入人工智能和大数据分析技术，对数据中心的海量数据进行挖掘和分析",
             span: 8,
           },
         ],
