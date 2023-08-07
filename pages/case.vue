@@ -49,14 +49,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
-  name: "case",
-});
-</script>
-
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 

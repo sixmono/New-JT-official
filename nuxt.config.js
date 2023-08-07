@@ -87,14 +87,18 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
+  modules: [
+  ],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   target: "static",
   ssr: false,
+  router: {
+    mode: 'history'
+  },
   generate: {
     dir: "docs",
     fallback: false,
   },
+
 };

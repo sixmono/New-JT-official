@@ -20,9 +20,9 @@
     <div class="tabs">
       <div class="triangle"></div>
       <NuxtLink to="/" class="index">首页</NuxtLink>
-      <NuxtLink to="about" class="about">关于我们</NuxtLink>
-      <NuxtLink to="solution" class="solution">解决方案</NuxtLink>
-      <NuxtLink to="case" class="case">成功案例</NuxtLink>
+      <NuxtLink to="/about" class="about">关于我们</NuxtLink>
+      <NuxtLink to="/solution" class="solution">解决方案</NuxtLink>
+      <NuxtLink to="/case" class="case">成功案例</NuxtLink>
     </div>
   </div>
 </template>

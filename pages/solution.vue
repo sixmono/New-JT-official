@@ -139,6 +139,9 @@ export default Vue.extend({
 </script>
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import useRouter from "vue-router";
+
+const activeKey = ref("1");
 
 onMounted(() => {
   if (
@@ -149,17 +152,17 @@ onMounted(() => {
     window.location.href =
       "https://jt-phone-1312712349.cos.ap-shanghai.myqcloud.com/index.html#/pages/solution/Consulting-Training"; //手机
   }
+  const activeIndex = localStorage.getItem("activeIndex");
+  const active = JSON.parse(activeIndex);
+  console.log(active);
+  activeKey.value = active.query.index;
 });
 
-const activeKey = ref("1");
 const title = ref(
   "企业更愿意专注于生产服务，需要不同学科的专业人员以整体系统视角审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全面提高企业综合竞争力"
 );
 
 const handleChange = () => {
-  console.log(activeKey.value);
-  console.log("aaa");
-
   if (activeKey.value === "1") {
     title.value =
       "企业更愿意专注于生产服务，需要不同学科的专业人员以整体系统视角审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全面提高企业综合竞争力";

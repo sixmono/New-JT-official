@@ -116,14 +116,18 @@
       <h1>我们的服务</h1>
       <h4>Our services</h4>
       <div>
-        <a-tabs v-model:activeKey="activeKey" style="position: relative">
+        <a-tabs
+          v-model:activeKey="activeKey"
+          style="position: relative"
+          @change="handleChange(activeKey)"
+        >
           <a-tab-pane
             :key="ourServicesItem.key"
             v-for="(ourServicesItem, ourServicesIndex) in ourServicesList"
             :tab="ourServicesItem.tabs"
           >
             <a-row :gutter="[10, 10]" style="margin-top: 2px">
-              <a-col :span="8" style="padding: 0">
+              <a-col :span="8" style="padding: 0" @click="handleClick">
                 <div class="colLeft">
                   <img
                     :src="ourServicesItem.img"
@@ -239,6 +243,7 @@ export default Vue.extend({
 
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
+import useRouter from "vue-router";
 
 onMounted(() => {
   if (
@@ -250,16 +255,36 @@ onMounted(() => {
       "https://jt-phone-1312712349.cos.ap-shanghai.myqcloud.com/index.html"; //手机
   }
 });
+
 const activeKey = ref("1");
 const activeKeyList = ref("1");
 // const viewMoreClick = () => {
 //   router.push({ path: "/about" });
 // };
-
-const video = ref(true);
-
+const router = new useRouter();
+const handleChange = (activeKey) => {
+  console.log(activeKey);
+};
+let activeIndex;
 const handleClick = () => {
-  console.log("aaa");
+  router.push(
+    {
+      path: "solution",
+      query: {
+        index: activeKey.value,
+      },
+    },
+    (success) => {
+      activeIndex = success;
+      return activeIndex;
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+  console.log(activeIndex);
+
+  localStorage.setItem("activeIndex", JSON.stringify(activeIndex));
 };
 
 const cardList = [
@@ -314,6 +339,7 @@ const solutionList = [
     data: "IT/OT低代码互联",
   },
 ];
+
 const ourServicesList = [
   {
     key: "1",
@@ -514,6 +540,7 @@ const projectList = [
     ],
   },
 ];
+
 const NewsList = [
   {
     date: "2023-07-10",
@@ -529,7 +556,6 @@ const NewsList = [
     href:
       "https://mp.weixin.qq.com/s?__biz=MzIwMDg4MDQyMA==&mid=2247486127&idx=1&sn=561f8b6ac6ae5dcdf461dd158f7c6808&chksm=96f732e4a180bbf2cd5355ec26ccd3997d1165e2e4d8e7da7a067cbd7e54a60570afe767b53a#rd",
   },
-
   {
     date: "2023-04-17",
     title: "疆通助力上海120急救中心，AR技术让急救加速",
@@ -847,6 +873,7 @@ const NewsList = [
   height: 380px;
   padding: 67px 30px;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 .ourServices .colLeftLine {
   width: 30px;
