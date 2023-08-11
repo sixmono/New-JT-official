@@ -127,20 +127,23 @@
             :tab="ourServicesItem.tabs"
           >
             <a-row :gutter="[10, 10]" style="margin-top: 2px">
-              <a-col :span="8" style="padding: 0" @click="handleClick">
-                <div class="colLeft">
-                  <img
-                    :src="ourServicesItem.img"
-                    style="position: absolute; top: 2px; left: 4px"
-                    alt=""
-                  />
-                  <div class="colLeftTitle">{{ ourServicesItem.title }}</div>
-                  <div class="colLeftLine"></div>
-                  <div class="colLeftData">
-                    {{ ourServicesItem.data }}
+              <a-col :span="8" style="padding: 0">
+                <NuxtLink :to="ourServicesItem.activeKeys">
+                  <div class="colLeft" @click="handleClick(activeKey)">
+                    <img
+                      :src="ourServicesItem.img"
+                      style="position: absolute; top: 2px; left: 4px"
+                    />
+                    <div class="colLeftTitle">
+                      {{ ourServicesItem.title }}
+                    </div>
+                    <div class="colLeftLine"></div>
+                    <div class="colLeftData">
+                      {{ ourServicesItem.data }}
+                    </div>
                   </div>
-                </div>
-                <div class="masking"></div>
+                  <div class="masking" @click="handleClick(activeKey)"></div>
+                </NuxtLink>
               </a-col>
               <a-col :span="16">
                 <a-row :gutter="[10, 10]">
@@ -151,20 +154,22 @@
                     ) in ourServicesItem.cardData"
                     :key="ourServicesItemSonIndex"
                   >
-                    <div class="imgDivFirst">
-                      <img
-                        :src="ourServicesItemSon.img"
-                        style="position: absolute; top: 2px; left: 4px"
-                      />
-                      <div class="colLeftTitle">
-                        {{ ourServicesItemSon.title }}
+                    <NuxtLink :to="ourServicesItem.activeKeys">
+                      <div class="imgDivFirst" @click="handleClick(activeKey)">
+                        <img
+                          :src="ourServicesItemSon.img"
+                          style="position: absolute; top: 2px; left: 4px"
+                        />
+                        <div class="colLeftTitle">
+                          {{ ourServicesItemSon.title }}
+                        </div>
+                        <div class="colLeftLine"></div>
+                        <div class="colLeftData">
+                          {{ ourServicesItemSon.data }}
+                        </div>
                       </div>
-                      <div class="colLeftLine"></div>
-                      <div class="colLeftData">
-                        {{ ourServicesItemSon.data }}
-                      </div>
-                    </div>
-                    <div class="maskingTwo"></div>
+                      <div class="maskingTwo" @click="handleClick(activeKey)"></div>
+                    </NuxtLink>
                   </a-col>
                 </a-row>
               </a-col>
@@ -265,27 +270,30 @@ const router = new useRouter();
 const handleChange = (activeKey) => {
   console.log(activeKey);
 };
-let activeIndex;
-const handleClick = () => {
-  router.push(
-    {
-      path: "solution",
-      query: {
-        index: activeKey.value,
-      },
-    },
-    (success) => {
-      activeIndex = success;
-      return activeIndex;
-    },
-    (error) => {
-      console.log(error);
-    }
-  );
-  console.log(activeIndex);
-
-  localStorage.setItem("activeIndex", JSON.stringify(activeIndex));
+const handleClick = (activeKey) => {
+  sessionStorage.setItem("activeIndex", JSON.stringify(activeKey));
 };
+// const handleClick = () => {
+//   router.push(
+//     {
+//       path: "/solution",
+//       query: {
+//         index: activeKey.value,
+//       },
+//     },
+//     (success) => {
+//       activeIndex = success;
+//       return activeIndex;
+//     },
+//     (error) => {
+//       console.log(error);
+//     }
+//   );
+
+//   console.log(activeIndex);
+
+//   sessionStorage.setItem("activeIndex", JSON.stringify(activeIndex));
+// };
 
 const cardList = [
   {
@@ -345,6 +353,7 @@ const ourServicesList = [
     key: "1",
     tabs: "咨询.培训",
     title: "概述：",
+    activeKeys: "/solution",
     data:
       "疆通与西门子中国研究院、中大咨询等国内外顶尖咨询公司深度合作，开展相应的咨询和共创课程，大幅节省用户寻找最佳数字方案时间成本，顶级专家齐聚一堂为用户打造可落地的数字化方案。",
     img: require("../static/indexView/index-ourServices-first.jpg"),
@@ -368,6 +377,7 @@ const ourServicesList = [
     key: "2",
     tabs: "AR/VR/MR眼镜方案",
     title: "概述：",
+    activeKeys: "/solution",
     data:
       "疆通拥有丰富的AR/VR/MR眼镜服务经验，我们可通过软件平台的远程协助、SOP作业流、互动多媒体展示等功能，实现信息可视化、虚实互动，解决信息的时空错位，丰富展示内容。",
     img: require("../static/indexView/index-ourServices-second.jpg"),
@@ -375,14 +385,15 @@ const ourServicesList = [
       {
         span: "10",
         title: "远程协作类",
-        data: "人和人分离，专家在后台远程支持。",
+        data:
+          "人和人分离，专家在后台远程支持。使用者可与后台人员互动，后台人员以现场人员第一视角查看现场情况和接入的第三方数据。",
         img: require("../static/indexView/index-ourServices-4.jpg"),
       },
       {
         span: "14",
         title: "作业流SOP类",
         data:
-          "人和技术分离，知识固化在设备上，使用者按照眼镜中的图文要求，完成作业，如有违规，自动纠错",
+          "人和技术分离，知识固化在设备上，使用者按照眼镜中的图文要求，完成作业，如有违规，自动纠错。",
         img: require("../static/indexView/index-ourServices-5.jpg"),
       },
       {
@@ -398,48 +409,53 @@ const ourServicesList = [
     key: "3",
     tabs: "IT/OT/MR集成",
     title: "概述",
+    activeKeys: "/solution",
     data:
       "疆通结合用户的需求，会将多个不同学科的专家组成项目组，合作梳理需求，通过集成融合信息技术（IT）、运营技术（OT）、增强现实技术(AR)，将经验知识、规则规范与数字化服务相结合，为用户定制低代码平台，使智能化场景采用图形拖拽的方式即可实现智能场景落地，助力数字场景规模化应用。",
     img: require("../static/indexView/index-ourServices-third.jpg"),
     cardData: [
       {
         span: "24",
-        title: "智能诊断与应急处置平台",
+        title: "电气火灾超前预警处置平台",
         data:
-          "平台可根据合规要求，在很短的时间里，根据有限的信息，针对不确定的需求，向不同对象快速分派有限的资源，做出最优决策，对处置行为进行指导和监督，事后复盘流程再造，形成闭环管理。",
+          "电气火灾数量在火灾占比第一，如何超前期预警火灾是重中之重。平台在短时间内根据有限的信息，针对不确定的需求，快速分派有限的资源，做出最优决策，对处置行为进行指导和监督，事后复盘流程再造，形成闭环管理。",
         img: require("../static/indexView/index-ourServices-6.jpg"),
       },
       {
         span: "24",
-        title: "数据透视一体化模型",
+        title: "合规作业预警处置平台",
         data:
-          "工厂等电气设备众多的场景，往往数据具有复杂性。针对不同设备，将设备状态通过传感器等方式监测，统一加载进大模型中，打通IT与OT部分。可使工作人员利用MR交互对数据直观透视，纵控全场。",
+          "合规监理在工业过程中是八大作业最重要的一个环节。我们采用合规预警处置平台联合机器人的方式协同进行监理，杜绝人为疏漏出现的隐患。应急平台集成事前预警，事中监督以及事后回溯的一套标准闭环管理流程。",
         img: require("../static/indexView/index-ourServices-7.jpg"),
       },
     ],
   },
   {
     key: "4",
-    tabs: "数据中心智能化建设",
+    tabs: "数据中心智能化建设服务",
     title: "概述",
+    activeKeys: "/solution",
     data:
-      "所有的数字化建设都是建立在数据处理的基础之上，数据中心的建造专业性要求极高，出于成本考虑，有时还会出现新旧系统搭建的需求，这种需求更是难上加难，疆通拥有多年数据中心成功建设经验，可以为企业的数字化建设保驾护航。",
+      "所有的数字化建设都是建⽴在数据处理的基础之上，数据中⼼的建造专业性要求极⾼，出于成本考虑，有时还会出现新旧系统搭建的需求，这种需求更是难上加难，疆通拥有多年数据中⼼成功建设经验，可以为企业的数字化建设保驾护航。",
     img: require("../static/indexView/index-ourServices-fourth.jpg"),
     cardData: [
       {
-        span: "24",
-        title: "数据中心智能化建设",
-        data: `配电系统：UPS系统、配电柜、发电机系统、...
-          环境控制系统：精密空调、采暖及通风空调、循环水系统...
-          弱电系统：智能化系统、综合布线、管线桥架...`,
-        img: require("../static/indexView/index-ourServices-2.jpg"),
+        span: "10",
+        title: "配电系统",
+        data: `UPS系统、列头配电柜、电气配电、发电机系统、0.4KV开关柜系统、变压器、10KV开关柜系统`,
+        img: require("../static/indexView/index-ourServices-8.jpg"),
+      },
+      {
+        span: "14",
+        title: "环境控制系统",
+        data: "精密空调、采暖及通⻛空调、循环⽔系统...。",
+        img: require("../static/indexView/index-ourServices-9.jpg"),
       },
       {
         span: "24",
-        title: "数据中心智能化运维系统",
-        data:
-          "数据中心中的设备种类多、数量大、维护要求高，通过智能化运维系统，可以实现设备的自动化管理和维护，包括设备状态监测、故障预测等，从而提高设备的可靠性和稳定性，降低管理和维护成本。",
-        img: require("../static/indexView/index-ourServices-8.jpg"),
+        title: "弱电系统",
+        data: "智能化系统、综合布线、管线桥架...。",
+        img: require("../static/indexView/index-ourServices-10.jpg"),
       },
     ],
   },
@@ -958,7 +974,7 @@ const NewsList = [
   position: relative;
   z-index: 1000;
   font-weight: 400;
-  white-space: pre-line;
+  /* white-space: pre-line; */
 }
 .colLeft .colLeftData {
   width: 100%;

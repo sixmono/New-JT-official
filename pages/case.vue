@@ -578,6 +578,23 @@ const tabsList = [
   margin-top: 23px;
   width: 350px;
 }
+@media only screen and (max-width: 1440px) {
+  .headerBody {
+    padding: 1% 0 0 20%;
+  }
+  .headerBodyTitle {
+    font-size: 40px;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+  }
+  .headerBodyData {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 23px;
+    width: 850px;
+  }
+}
 /* 内容-------------------------------- */
 /*  */
 .tabs {

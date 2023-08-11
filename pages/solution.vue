@@ -19,6 +19,7 @@
         v-for="(tabsItem, tabsIndex) in tabsList"
         :key="tabsItem.key"
         :tab="tabsItem.tab"
+        class="tabPane"
       >
         <div
           class="change"
@@ -34,7 +35,7 @@
               :key="changeIndex + 2"
             >
               <div class="changeCard">
-                <img :src="changeItem.img" style="padding: 40px 20px 50px" />
+                <img :src="changeItem.img" class="changeCardImg" />
                 <div>
                   <h2 class="changeCardTitle">{{ changeItem.title }}</h2>
                   <h5 class="changeCardData">
@@ -47,7 +48,7 @@
         </div>
         <!-- 额外的 -->
         <div
-          class="solution"
+          class="change"
           v-for="(solutionTwo, solutionTwoIdx) in tabsItem.solutionListTwo"
           :key="solutionTwoIdx + 3"
         >
@@ -59,15 +60,15 @@
               v-for="(
                 solutionItemTwo, solutionIndexTwo
               ) in solutionTwo.solutionListSonTwo"
-              :key="solutionIndexTwo + 1 + 4"
+              :key="solutionIndexTwo + 4"
             >
-              <div class="solutionCard">
+              <div class="solutionCardTwo">
                 <img
                   :src="solutionItemTwo.img"
                   style="width: 60px; margin: 25px 0 15px"
                 />
-                <h2 class="solutionCardTitle">{{ solutionItemTwo.title }}</h2>
-                <h5 class="solutionCardData">
+                <h2 class="solutionCardTitleTwo">{{ solutionItemTwo.title }}</h2>
+                <h5 class="solutionCardDataTwo">
                   {{ solutionItemTwo.data }}
                 </h5>
               </div>
@@ -76,7 +77,7 @@
         </div>
         <!-- 解决方法 -->
         <div
-          class="solutionTwo"
+          class="change"
           v-for="(solution, solutionIdx) in tabsItem.solutionList"
           :key="solutionIdx + 5"
         >
@@ -88,11 +89,40 @@
               v-for="(solutionItem, solutionIndex) in solution.solutionListSon"
               :key="solutionIndex + 6"
             >
-              <div class="solutionCardTwo">
+              <div class="solutionCard">
                 <img :src="solutionItem.img" style="width: 60px; margin: 25px 0 15px" />
-                <h2 class="solutionCardTitleTwo">{{ solutionItem.title }}</h2>
-                <h5 class="solutionCardDataTwo">
+                <h2 class="solutionCardTitle">{{ solutionItem.title }}</h2>
+                <h5 class="solutionCardData">
                   {{ solutionItem.data }}
+                </h5>
+              </div>
+            </a-col>
+          </a-row>
+        </div>
+        <!-- 展陈 -->
+        <div
+          class="change"
+          v-for="(solutionThree, solutionThreeIdx) in tabsItem.solutionListThree"
+          :key="solutionThreeIdx + 7"
+        >
+          <h1>{{ solutionThree.h1 }}</h1>
+          <h4>{{ solutionThree.h4 }}</h4>
+          <a-row :gutter="[30, 30]">
+            <a-col
+              :span="solutionItemThree.span"
+              v-for="(
+                solutionItemThree, solutionIndex
+              ) in solutionThree.solutionListSonThree"
+              :key="solutionIndex + 8"
+            >
+              <div class="solutionCardThree">
+                <img
+                  :src="solutionItemThree.img"
+                  style="width: 60px; margin: 25px 0 15px"
+                />
+                <h2 class="solutionCardTitleThree">{{ solutionItemThree.title }}</h2>
+                <h5 class="solutionCardDataThree">
+                  {{ solutionItemThree.data }}
                 </h5>
               </div>
             </a-col>
@@ -101,9 +131,9 @@
 
         <!-- 效果和收益 -->
         <div
-          class="effects"
+          class="change"
           v-for="(effects, effectsIdx) in tabsItem.effectsList"
-          :key="effectsIdx + 7"
+          :key="effectsIdx + 9"
         >
           <h1>{{ effects.h1 }}</h1>
           <h4>{{ effects.h4 }}</h4>
@@ -111,7 +141,7 @@
             <a-col
               :span="effectsItem.span"
               v-for="(effectsItem, effectsIndex) in effects.effectsListSon"
-              :key="effectsIndex + 8"
+              :key="effectsIndex + 10"
             >
               <div class="effectsCard">
                 <div class="effectsData">
@@ -138,8 +168,7 @@ export default Vue.extend({
 });
 </script>
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import useRouter from "vue-router";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const activeKey = ref("1");
 
@@ -152,29 +181,32 @@ onMounted(() => {
     window.location.href =
       "https://jt-phone-1312712349.cos.ap-shanghai.myqcloud.com/index.html#/pages/solution/Consulting-Training"; //手机
   }
-  const activeIndex = localStorage.getItem("activeIndex");
+  const activeIndex = sessionStorage.getItem("activeIndex");
   const active = JSON.parse(activeIndex);
-  console.log(active);
-  activeKey.value = active.query.index;
+  if (activeIndex === null) {
+    activeKey.value = "1";
+  } else {
+    activeKey.value = active;
+  }
 });
 
 const title = ref(
-  "企业更愿意专注于生产服务，需要不同学科的专业人员以整体系统视角审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全面提高企业综合竞争力"
+  "外部市场需求瞬息万变，内部企业协同日益复杂，企业数字化转型迫在眉睫，数字化方案需要不同学科的专业⼈员以整体系统视⻆审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全⾯提⾼企业综合竞争⼒，⼀般咨询公司并不具备数字化落地实施的能力和经验，这也导致企业寻找适合自己解决方案的沟通成本高、选择成本高、试错成本高。"
 );
 
 const handleChange = () => {
   if (activeKey.value === "1") {
     title.value =
-      "企业更愿意专注于生产服务，需要不同学科的专业人员以整体系统视角审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全面提高企业综合竞争力";
+      "外部市场需求瞬息万变，内部企业协同日益复杂，企业数字化转型迫在眉睫，数字化方案需要不同学科的专业⼈员以整体系统视⻆审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全⾯提⾼企业综合竞争⼒，⼀般咨询公司并不具备数字化落地实施的能力和经验，这也导致企业寻找适合自己解决方案的沟通成本高、选择成本高、试错成本高。";
   } else if (activeKey.value === "2") {
     title.value =
       "数字化时代，跨时空多维度解决问题将成为常态，MR虚实融合技术成为人与物理世界沟通的最佳环境";
   } else if (activeKey.value === "3") {
     title.value =
-      "通过集成信息技术（IT）、运营技术（OT）、增强现实技术(AR)深度融合，将经验知识、规则规范与数字化服务相结合，使智能化场景更易于快速落地，助力数字场景规模化应用";
+      "系统集成需求从单一系统趋向多个跨学科系统的融合、从相对确定的流程需求趋向综合场景需求，集成方案需融通IT/OT/MR等多个系统，利用数字化工具， 快速协同，做出更科学的决策判断， 以更高、更快、 更强的状态采取行动，更早地获取更多的收益。";
   } else {
     title.value =
-      "通过引入各类物联网传感器集成技术，人工智能数据分析技术与数据图谱技术，将系统智能实时化，对数据中心基础设施流程管理和业务应用进行全面的升级和优化，以提高数据中心的可靠性、运行效率与安全性";
+      "计算力需求驱动数据中心规模快速扩张，安全性和稳定性始终是企业业务正常运行的最基础保障，而海量增长的数据容量，给数据的存储和保护带来新的挑战。";
   }
 };
 
@@ -189,23 +221,23 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-third.png"),
-            title: "数字化转型趋势",
+            title: "多维决策",
             data:
-              "需要了解适合本企业发展的数字化趋势，企业管理层缺乏对数字化转型统一的关键点和战略认知",
+              "⽤户对服务的及时性、准确性要求⾼，缺少融合多维度数据的解决⽅案，指挥决策效率低，专家分配难，作业协调难。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
-            title: "数字化竞争逻辑",
+            title: "流程教验",
             data:
-              "在与同业市场竞争中，已有的数字化能否切中要害还只是带来成支出，数字化转型是否系统化",
+              "新⼿流程不熟，熟手成本高，⼈⼯巡检易漏检、错检，点位巡检难以确保查验巡检点异常状况，人到确检难，管理覆盖难。",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
-            title: "数字化转型路径",
+            title: "虚实展示",
             data:
-              "无法判断最优数字化转型路径，已有数字化投入产出比是否合理，数字化战略创新摸索成本过高",
+              "受时空限制，⽆法互动展示更多内容，展览、教学、研发的实景搭建要求⾼、成本⾼、耗时⻓，新品导入难。",
             span: 8,
           },
         ],
@@ -275,7 +307,6 @@ const tabsList = [
         ],
       },
     ],
-
     effectsList: [
       {
         h1: "效果和收益",
@@ -340,25 +371,25 @@ const tabsList = [
     ],
     solutionList: [
       {
-        h1: "远程协作类",
-        h4: "Remote Collaboration",
+        h1: "作业流SOP类场景",
+        h4: "Job flow",
         solutionListSon: [
           {
-            img: require("../static/SolutionView/solution-third.png"),
-            title: "远程指挥，多维联动",
-            data: "融合多维数据，实现高效指挥决策",
-            span: 8,
-          },
-          {
-            img: require("../static/SolutionView/solution-first.png"),
-            title: "远程检修，专家指导",
-            data: "远程维护，实时解答疑难",
-            span: 8,
-          },
-          {
             img: require("../static/SolutionView/coreAdvantage-third.png"),
-            title: "远程诊断，专家会诊",
-            data: "智慧共谋，提供精准诊断与全方位解决方案",
+            title: "视觉巡检，杜绝漏检",
+            data: "案例：国家电网",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/coreAdvantage-first.png"),
+            title: "视觉制造，按图施工 ",
+            data: "案例：海尔",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/solution-fourth.png"),
+            title: "视觉拣选，智慧物流",
+            data: "案例：福斯润滑油",
             span: 8,
           },
         ],
@@ -366,31 +397,56 @@ const tabsList = [
     ],
     solutionListTwo: [
       {
-        h1: "作业流SOP类",
-        h4: "Job Flow",
+        h1: "远程协作类场景",
+        h4: "Remote collaboration",
         solutionListSonTwo: [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "视觉巡检，杜绝漏检",
-            data: "巡视全程，确保每一处细微之处都被细心检视",
-            span: 8,
-          },
-          {
-            img: require("../static/SolutionView/solution-third.png"),
-            title: "视觉制造，按图施工",
-            data: "精心演绎每个构思的蓝图，将想象变为现实",
+            title: "远程指挥，多维联动",
+            data: "案例：大连商品交易所",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "视觉拣选，智慧物流",
-            data: "用视觉的智慧，打造高效、无缝的物流服务",
+            title: "远程检修，专家指导",
+            data: "案例：米其林",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/coreAdvantage-fourth.png"),
+            title: "远程诊断，专家会诊",
+            data: "案例：120急救中心",
             span: 8,
           },
         ],
       },
     ],
-
+    solutionListThree: [
+      {
+        h1: "数字孪生展陈类",
+        h4: "Digital twin",
+        solutionListSonThree: [
+          {
+            img: require("../static/SolutionView/solution-third.png"),
+            title: "数字展陈，时空互动",
+            data: "案例：汉诺威",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/solution-first.png"),
+            title: "案例汉诺威 ",
+            data: "案例：福州地铁",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/coreAdvantage-fourth.png"),
+            title: "数字孪生",
+            data: "案例：西门子工业元宇宙",
+            span: 8,
+          },
+        ],
+      },
+    ],
     effectsList: [
       {
         h1: "效果和收益",
@@ -429,15 +485,24 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-first.png"),
-            title: "缺乏有效的解决方案",
-            data: "专业要求高、时间成本高",
-            span: 12,
+            title: "需求场景复杂",
+            data:
+              "仅靠个别专家已经很难满⾜⽤户的多维度场景化需求，对解决⽅案的专业要求⾼、时间成本⾼，⽤户往往不具备这样的多维度综合能⼒。",
+            span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
-            title: "部门沟通协调困难",
-            data: "综合智能场景难落地",
-            span: 12,
+            title: "数字化成本高",
+            data:
+              "各部门职能、业务需求、技术要求不同，产品结构类型繁多，软硬件接入种类多，运行环境复杂，各部⻔各专业需⼤量专业性的沟通协调，数字化综合场景落地难。",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/coreAdvantage-five.png"),
+            title: "数据洞察难",
+            data:
+              "设备运行场景、人员知识经验、管理层关键决策等大量信息，在系统流程中传递，海量数据下，科学适用的的数字模型少，效率低，很难形成创新洞察力。",
+            span: 8,
           },
         ],
       },
@@ -494,21 +559,51 @@ const tabsList = [
         ],
       },
     ],
-
+    solutionListThree: [
+      {
+        h1: "智能诊断与应急处置平台",
+        h4: "Intelligent Diagnosis",
+        solutionListSonThree: [
+          {
+            img: require("../static/SolutionView/coreAdvantage-second.png"),
+            title: "电气火灾超前预警处置平台",
+            data: "案例：上海城投",
+            span: 12,
+          },
+          {
+            img: require("../static/SolutionView/solution-second.png"),
+            title: "规范作业预警处置平台",
+            data: "案例：为⺠服务中⼼",
+            span: 12,
+          },
+        ],
+      },
+    ],
     effectsList: [
       {
         h1: "效果和收益",
         h4: "Effects",
         effectsListSon: [
           {
-            value: "无编程基础轻松组合项目流程",
+            value: "管理难度降低",
+            data:
+              "⽆需编程专业要求，管理⼈员可通过拖拉拽⽅式，实现管理流程和要素重新组合，场景联动优化体验，为数字化管理措施落地节约沟通时间，让管理措施执⾏到位",
             img: require("../static/SolutionView/位图@2x(4).png"),
-            span: 12,
+            span: 8,
           },
           {
-            value: "促进多部门之间的协作创新",
+            value: "管理成本降低",
+            data:
+              "低代码平台内置大量的IT/OT/MR等模块，无需对接大量软件接口，避免信息孤岛，大幅节省数字化互联互通的搭建成本、沟通成本，多源异构高效管理，边缘智能利旧降本",
             img: require("../static/SolutionView/位图@2x(4).png"),
-            span: 12,
+            span: 8,
+          },
+          {
+            value: "管理洞察创新",
+            data:
+              "多部⻔协作流程透明，隐患和卡点⼀⽬了然，数据模型敏捷开发，短时间做出更科学的决策判断，便于实现多部⻔之间的协作创新、流程再造。",
+            img: require("../static/SolutionView/位图@2x(4).png"),
+            span: 8,
           },
         ],
       },
@@ -524,17 +619,23 @@ const tabsList = [
         changeListSon: [
           {
             img: require("../static/SolutionView/coreAdvantage-first.png"),
-            title: "技术问题",
+            title: "技术要求高",
             data:
-              "数据中心智能化建设需要应用各种先进的技术和工具，如人工智能、大数据、云计算等，这些技术的引入和应用需要大量的技术支持和投入",
-            span: 12,
+              "数据中⼼的建造专业性要求⾼，建设过程中需要引入多种跨学科技术和工具，如环控系统、供配电系统、人工智能、大数据、云计算等，⼀旦发⽣问题，影响巨⼤，新旧系统的更新接⼊更是对施⼯服务提出⾮常⾼的要求。",
+            span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
-            title: "安全风险",
+            title: "管理要求高",
             data:
-              "数据中心是企业重要的信息资产库，智能化建设可能带来新的安全隐患和风险，需要采取有效的安全防护和管理措施",
-            span: 12,
+              "数据中心是重要的信息资产库，定制化需求日益明显，而定制同步会带来管理难度，简便有效的安全防护和管理措施是非常必要的。",
+            span: 8,
+          },
+          {
+            img: require("../static/SolutionView/coreAdvantage-five.png"),
+            title: "能耗要求高",
+            data: "海量数据运算导致数据中心能耗大。",
+            span: 8,
           },
         ],
       },
@@ -545,17 +646,18 @@ const tabsList = [
         h4: "Automated Security Operations",
         solutionListSon: [
           {
-            img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "自动化运维",
-            data: "引入自动化工具和技术，对数据中心的运维流程进行智能化升级",
-            span: 8,
-          },
-          {
             img: require("../static/SolutionView/solution-fourth.png"),
             title: "智能安全监测",
             data: "引入安全监测工具和技术，对数据中心的安全性进行实时监测和预警",
             span: 8,
           },
+          {
+            img: require("../static/SolutionView/coreAdvantage-second.png"),
+            title: "自动化运维",
+            data: "引入自动化工具和技术，对数据中心的运维流程进行智能化升级",
+            span: 8,
+          },
+
           {
             img: require("../static/SolutionView/solution-second.png"),
             title: "云计算平台建设",
@@ -598,20 +700,34 @@ const tabsList = [
         h4: "Effects",
         effectsListSon: [
           {
-            value: "提高数据中心的效率",
+            value: "可靠",
+            data:
+              "依托多年的数据中⼼咨询、设计、实施经验，实现数据中⼼的定制化建设，完善的施⼯⽅案和应急处置措施，确保数据中心运维智能化。",
             img: require("../static/SolutionView/位图@2x(4).png"),
-            span: 12,
+            span: 8,
           },
           {
-            value: "数据中心运维智能化",
+            value: "定制",
+            data:
+              "按需定制，微模块和新旧系统搭配后成本最优，智能监管系统让系统管理更简单。",
             img: require("../static/SolutionView/位图@2x(4).png"),
-            span: 12,
+            span: 8,
+          },
+          {
+            value: "绿色",
+            data: "从设计咨询到维修整改，成熟多样的节能措施让绿色节能变得更简单。",
+            img: require("../static/SolutionView/位图@2x(4).png"),
+            span: 8,
           },
         ],
       },
     ],
   },
 ];
+
+onUnmounted(() => {
+  sessionStorage.removeItem("activeIndex");
+});
 </script>
 <style scoped>
 .container {
@@ -622,7 +738,7 @@ const tabsList = [
   top: 0;
 }
 .headerBody {
-  padding: 5% 20% 0;
+  padding: 2% 0 0 20%;
   position: absolute;
   top: 0;
 }
@@ -661,17 +777,23 @@ h4 {
 .change {
   padding: 60px 20%;
 }
-
+.change:nth-child(2n + 1) {
+  background: #f6f6f6;
+}
+.change:nth-child(2n) {
+  background: #ffffff;
+}
 .changeCard {
   display: flex;
   width: 100%;
-  height: 150px;
+  height: 180px;
   background: #ffffff;
   border: 1px solid #ededed;
   margin: 60px 0 0 0;
 }
+
 .changeCardTitle {
-  margin-top: 24px;
+  margin-top: 14px;
   font-size: 18px;
   color: #333333;
   padding: 0 10px 0 0;
@@ -691,27 +813,14 @@ h4 {
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   display: -webkit-box !important;
   word-break: break-all;
 }
-@media only screen and (max-width: 1300px) {
-  .solutionCardData {
-    padding: 20px 0 35px !important;
-    font-size: 16px;
-    font-weight: 400;
-    color: #999999;
-  }
-  .solutionCardDataTwo {
-    padding: 20px 0 35px !important;
-    font-size: 16px;
-    font-weight: 400;
-    color: #999999;
-  }
-  .changeCard img {
-    padding: 40px 0;
-  }
+.changeCardImg {
+  padding: 40px 20px 50px;
 }
+
 /* ------------------------解决方案----------------------- */
 .solution {
   padding: 60px 20%;
@@ -729,7 +838,7 @@ h4 {
   color: #333333;
 }
 .solutionCardData {
-  padding: 20px 40px 35px;
+  padding: 20px 30px 35px;
   font-size: 16px;
   font-weight: 400;
   color: #999999;
@@ -757,7 +866,29 @@ h4 {
   font-weight: 400;
   color: #999999;
 }
-
+/* 3 */
+.solutionThree {
+  padding: 60px 20%;
+  background: #ffffff;
+  overflow: hidden;
+}
+.solutionCardThree {
+  text-align: center;
+  height: 240px;
+  background: #ffffff;
+  border: 1px solid #ededed;
+  overflow: hidden;
+}
+.solutionCardTitleThree {
+  font-size: 18px;
+  color: #333333;
+}
+.solutionCardDataThree {
+  padding: 20px 30px 35px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999999;
+}
 /*--------------------------- 效果和收益----------------------------- */
 .effects {
   padding: 60px 20%;
@@ -798,12 +929,37 @@ h4 {
   font-family: DINAlternate-Bold, DINAlternate;
 }
 .data {
-  margin: 10px 10px 0 0;
+  margin: 0 10px 0 0;
   font-size: 16px;
   font-weight: 400;
   color: #999999;
 }
 
+.effectsImg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/* 深度修改的样式 */
+:deep(.ant-tabs-nav-scroll) {
+  height: 80px;
+  background-color: #ffffff;
+  font-size: 20px;
+  padding: 0 20%;
+}
+:deep(.ant-tabs-bar) {
+  margin: 0;
+  background-color: #ffffff;
+}
+:deep(.ant-tabs-nav .ant-tabs-tab-active) {
+  margin: 0;
+  padding-bottom: 25px;
+  margin-top: 13px;
+}
+:deep(.ant-tabs-tab) {
+  margin: 0;
+}
+/* ------------------------------------响应式布局------------------- */
 @media only screen and (max-width: 1150px) {
   .effectsCard {
     width: 100%;
@@ -815,7 +971,82 @@ h4 {
     overflow: hidden;
   }
 }
-@media only screen and (max-width: 1450px) {
+@media only screen and (max-width: 1300px) {
+  .solutionCardData {
+    padding: 20px 0 35px !important;
+    font-size: 16px;
+    font-weight: 400;
+    color: #999999;
+  }
+  .solutionCardDataTwo {
+    padding: 20px 0 35px !important;
+    font-size: 16px;
+    font-weight: 400;
+    color: #999999;
+  }
+  .changeCard img {
+    padding: 40px 0;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  /* 问题与挑战 */
+  .headerBody {
+    padding: 1% 0 0 20%;
+  }
+  .headerBodyTitle {
+    font-size: 40px;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+  }
+  .headerBodyData {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 23px;
+    width: 850px;
+  }
+  /* 问题与挑战 */
+  .changeCardTitle {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333333;
+    padding: 0 10px 0 0;
+  }
+  .changeCardData {
+    font-size: 14px;
+    font-weight: 400;
+    color: #999999;
+    padding: 0 20px 0 0;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    display: -webkit-box !important;
+    word-break: break-all;
+  }
+  .changeCardImg {
+    padding: 40px 10px 50px;
+  }
+  /* ----------------------1--------------------- */
+  .solutionCardData {
+    padding: 20px 40px 35px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #999999;
+  }
+  /* -----------------------------2--------------------- */
+  .solutionCardDataTwo {
+    padding: 20px 30px 35px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #999999;
+  }
+  /* ------------------------3------------------------ */
+  .solutionCardDataThree {
+    font-size: 14px;
+  }
+  /* 效果和收益 */
   .effectsCard {
     width: 100%;
     height: 160px;
@@ -846,29 +1077,5 @@ h4 {
     margin: 10px 10px 0 0;
     font-size: 12px !important;
   }
-}
-.effectsImg {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-:deep(.ant-tabs-nav-scroll) {
-  height: 80px;
-  background-color: #ffffff;
-  font-size: 20px;
-  padding: 0 20%;
-}
-:deep(.ant-tabs-bar) {
-  margin: 0;
-  background-color: #ffffff;
-}
-:deep(.ant-tabs-nav .ant-tabs-tab-active) {
-  margin: 0;
-  padding-bottom: 25px;
-  margin-top: 13px;
-}
-:deep(.ant-tabs-tab) {
-  margin: 0;
 }
 </style>
