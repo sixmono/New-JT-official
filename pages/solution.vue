@@ -377,19 +377,19 @@ const tabsList = [
           {
             img: require("../static/SolutionView/coreAdvantage-third.png"),
             title: "视觉巡检，杜绝漏检",
-            data: "案例：国家电网",
+            data: "",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-first.png"),
             title: "视觉制造，按图施工 ",
-            data: "案例：海尔",
+            data: "",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
             title: "视觉拣选，智慧物流",
-            data: "案例：福斯润滑油",
+            data: "",
             span: 8,
           },
         ],
@@ -403,19 +403,19 @@ const tabsList = [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
             title: "远程指挥，多维联动",
-            data: "案例：大连商品交易所",
+            data: "",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
             title: "远程检修，专家指导",
-            data: "案例：米其林",
+            data: "",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
             title: "远程诊断，专家会诊",
-            data: "案例：120急救中心",
+            data: "",
             span: 8,
           },
         ],
@@ -429,19 +429,19 @@ const tabsList = [
           {
             img: require("../static/SolutionView/solution-third.png"),
             title: "数字展陈，时空互动",
-            data: "案例：汉诺威",
+            data: "",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
             title: "案例汉诺威 ",
-            data: "案例：福州地铁",
+            data: "",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
             title: "数字孪生",
-            data: "案例：西门子工业元宇宙",
+            data: " ",
             span: 8,
           },
         ],
@@ -535,7 +535,7 @@ const tabsList = [
     ],
     solutionListTwo: [
       {
-        h1: "规范作业预警处置平台",
+        h1: "合规作业预警处置平台",
         h4: "Standardized Operation",
         solutionListSonTwo: [
           {
@@ -559,26 +559,7 @@ const tabsList = [
         ],
       },
     ],
-    solutionListThree: [
-      {
-        h1: "智能诊断与应急处置平台",
-        h4: "Intelligent Diagnosis",
-        solutionListSonThree: [
-          {
-            img: require("../static/SolutionView/coreAdvantage-second.png"),
-            title: "电气火灾超前预警处置平台",
-            data: "案例：上海城投",
-            span: 12,
-          },
-          {
-            img: require("../static/SolutionView/solution-second.png"),
-            title: "规范作业预警处置平台",
-            data: "案例：为⺠服务中⼼",
-            span: 12,
-          },
-        ],
-      },
-    ],
+
     effectsList: [
       {
         h1: "效果和收益",
@@ -601,7 +582,7 @@ const tabsList = [
           {
             value: "管理洞察创新",
             data:
-              "多部⻔协作流程透明，隐患和卡点⼀⽬了然，数据模型敏捷开发，短时间做出更科学的决策判断，便于实现多部⻔之间的协作创新、流程再造。",
+              "多部⻔协作流程透明，隐患和卡点⼀⽬了然，数据模型敏捷开发，短时间做出更科学的决策判断，便于实现多部⻔之间的协作创新、流程再造",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },

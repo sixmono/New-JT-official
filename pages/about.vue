@@ -177,7 +177,7 @@ const tabsListData = [
       {
         span: 10,
         sequence: "01",
-        enTitle: "VISION",
+        enTitle: "Mission",
         title: "使命：",
         data: "探索智慧场景，提升人类幸福",
       },
@@ -195,7 +195,7 @@ const tabsListData = [
       {
         span: 24,
         sequence: "03",
-        enTitle: "VISION",
+        enTitle: "Values",
         title: "价值观：",
         data: "跨界创新、协作共赢、做事靠谱",
       },
@@ -216,7 +216,7 @@ const certificateList = [
       },
       {
         img: require("../static/AboutView/about-certificate-6.png"),
-        data: "华东实习基地",
+        data: "华东师范大学实习基地",
       },
       {
         img: require("../static/AboutView/about-certificate-7.png"),
