@@ -184,7 +184,7 @@ const tabsListData = [
       {
         span: 10,
         sequence: "02",
-        enTitle: "VISION",
+        enTitle: "Vision",
         title: "愿景",
         data: "成为合规、高效、智慧的标杆",
       },
@@ -291,7 +291,7 @@ const achievementList = [
   {
     img: require("../static/AboutView/about-first.png"),
     title: "AR/VR/MR眼镜",
-    data: `上海120、国家电网、米其林、西门子德国汉诺威展、福州地铁等多个客户选择了我们的眼镜平台和建模互动服务`,
+    data: `上海120、国家电网、米其林、德国汉诺威展、福州地铁等多个客户选择了我们的眼镜平台和建模互动服务`,
   },
   {
     img: require("../static/AboutView/about-five.png"),

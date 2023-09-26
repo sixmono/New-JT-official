@@ -17,8 +17,7 @@
           <!-- muted是否静音 -->
           <video autoplay loop :muted="true" width="100%" id="video" ref="video">
             <source
-              src="https://sekiro-1312712349.cos.ap-shanghai.myqcloud.com/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4"
-            />
+              src="https://sekiro-1312712349.cos.ap-shanghai.myqcloud.com/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4" />
           </video>
         </div>
       </div>
@@ -90,16 +89,9 @@
       <h1>技术能力</h1>
       <h4>Solution</h4>
       <div class="cardAll">
-        <div
-          class="card"
-          v-for="(solutionItem, solutionIndex) in solutionList"
-          :key="solutionIndex"
-        >
+        <div class="card" v-for="(solutionItem, solutionIndex) in solutionList" :key="solutionIndex">
           <div style="display: flex">
-            <img
-              :src="require(`../static/indexView/${solutionItem.img}.png`)"
-              class="SolutionImg"
-            />
+            <img :src="require(`../static/indexView/${solutionItem.img}.png`)" class="SolutionImg" />
             <div>
               <div style="font-weight: 900; font-size: 24px; margin-top: 10px">
                 {{ solutionItem.title2 }}
@@ -116,24 +108,14 @@
       <h1>我们的服务</h1>
       <h4>Our services</h4>
       <div>
-        <a-tabs
-          v-model:activeKey="activeKey"
-          style="position: relative"
-          @change="handleChange(activeKey)"
-        >
-          <a-tab-pane
-            :key="ourServicesItem.key"
-            v-for="(ourServicesItem, ourServicesIndex) in ourServicesList"
-            :tab="ourServicesItem.tabs"
-          >
+        <a-tabs v-model:activeKey="activeKey" style="position: relative" @change="handleChange(activeKey)">
+          <a-tab-pane :key="ourServicesItem.key" v-for="(ourServicesItem, ourServicesIndex) in ourServicesList"
+            :tab="ourServicesItem.tabs">
             <a-row :gutter="[10, 10]" style="margin-top: 2px">
               <a-col :span="8" style="padding: 0">
                 <NuxtLink :to="ourServicesItem.activeKeys">
                   <div class="colLeft" @click="handleClick(activeKey)">
-                    <img
-                      :src="ourServicesItem.img"
-                      style="position: absolute; top: 2px; left: 4px"
-                    />
+                    <img :src="ourServicesItem.img" style="position: absolute; top: 2px; left: 4px" />
                     <div class="colLeftTitle">
                       {{ ourServicesItem.title }}
                     </div>
@@ -147,19 +129,12 @@
               </a-col>
               <a-col :span="16">
                 <a-row :gutter="[10, 10]">
-                  <a-col
-                    :span="ourServicesItemSon.span"
-                    v-for="(
+                  <a-col :span="ourServicesItemSon.span" v-for="(
                       ourServicesItemSon, ourServicesItemSonIndex
-                    ) in ourServicesItem.cardData"
-                    :key="ourServicesItemSonIndex"
-                  >
+                    ) in ourServicesItem.cardData" :key="ourServicesItemSonIndex">
                     <NuxtLink :to="ourServicesItem.activeKeys">
                       <div class="imgDivFirst" @click="handleClick(activeKey)">
-                        <img
-                          :src="ourServicesItemSon.img"
-                          style="position: absolute; top: 2px; left: 4px"
-                        />
+                        <img :src="ourServicesItemSon.img" style="position: absolute; top: 2px; left: 4px" />
                         <div class="colLeftTitle">
                           {{ ourServicesItemSon.title }}
                         </div>
@@ -183,19 +158,12 @@
       <h1>项目案例</h1>
       <h4>Project Cases</h4>
       <a-tabs v-model:activeKey="activeKeyList" tab-position="left">
-        <a-tab-pane
-          :key="projectItem.key"
-          :tab="projectItem.tabs"
-          v-for="(projectItem, projectIndex) in projectList"
-        >
+        <a-tab-pane :key="projectItem.key" :tab="projectItem.tabs" v-for="(projectItem, projectIndex) in projectList">
           <h2 style="color: #ffffff">{{ projectItem.title }}</h2>
           <h3 style="color: #ffffff">{{ projectItem.tabs }}</h3>
           <a-row :gutter="[30, 30]" style="margin-top: 47px; color: #ffffff">
-            <a-col
-              v-for="(projectItemSon, projectItemSonIndex) in projectItem.card"
-              :key="projectItemSonIndex"
-              :span="12"
-            >
+            <a-col v-for="(projectItemSon, projectItemSonIndex) in projectItem.card" :key="projectItemSonIndex"
+              :span="12">
               <div class="projectTitle">
                 <div>
                   {{ projectItemSon.title }}
@@ -217,12 +185,7 @@
       <h1>新闻资讯</h1>
       <h4>News</h4>
       <a-row class="newsMain" style="display: flex">
-        <a-col
-          :span="8"
-          class="card"
-          v-for="(NewsItem, NewsIndex) in NewsList"
-          :key="NewsIndex"
-        >
+        <a-col :span="8" class="card" v-for="(NewsItem, NewsIndex) in NewsList" :key="NewsIndex">
           <img src="../static/indexView/timing.png" alt="" /><span class="cardDate">{{
             NewsItem.date
           }}</span>
@@ -588,17 +551,20 @@ const NewsList = [
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
 @media only screen and (max-width: 1500px) {
   .companyProfile {
     padding: 60px 15% !important;
   }
 }
+
 /* ----------------------logo图片------------------- */
 .container img {
   width: 100%;
   height: 100%;
   background: linear-gradient(192deg, #ffffff 0%, #f7f8fe 0%, #6491f6 100%);
 }
+
 /* ----------------------公司简介---------------- */
 
 .companyProfile {
@@ -608,15 +574,18 @@ const NewsList = [
   display: flex;
   padding: 60px 20%;
 }
+
 /* 公司简介左侧边 */
 .companyProfileLeft {
   width: 50%;
   background: #f7f7f7;
 }
+
 /* 左侧边标题 */
 .companyProfileLeft .top {
   background-color: #f7f7f7;
 }
+
 .companyProfileLeft h1 {
   font-size: 40px;
   color: #333333;
@@ -624,6 +593,7 @@ const NewsList = [
   margin: 0;
   font-weight: bold;
 }
+
 .companyProfileLeft h2 {
   font-size: 26px;
   color: #cccccc;
@@ -638,6 +608,7 @@ const NewsList = [
   border-top: 5px solid #294dce;
   padding: 40px 0 40px 50px;
 }
+
 /* 右侧边标题 */
 .companyProfileRight h1 {
   letter-spacing: 10px;
@@ -646,6 +617,7 @@ const NewsList = [
   margin: 0;
   font-weight: bold;
 }
+
 /* 文字内容 */
 .companyProfileRight h4 {
   text-indent: 2em;
@@ -654,22 +626,26 @@ const NewsList = [
   line-height: 35px;
   font-weight: 400;
 }
+
 /* 底部内容 */
 .companyProfileRight .bottom {
   height: 100px;
   display: flex;
 }
+
 .companyProfileRight .bottom span {
   font-size: 46px;
   color: #294dce;
   font-weight: bold;
 }
+
 .companyProfileRight .bottom div {
   font-size: 16px;
   font-weight: 400;
   color: #999999;
 }
-.companyProfileRight > .ant-divider,
+
+.companyProfileRight>.ant-divider,
 .ant-divider-vertical {
   height: 60px !important;
   background-color: #e9e9e9;
@@ -717,9 +693,11 @@ const NewsList = [
 .coreAdvantage .card {
   margin-left: 30px;
 }
+
 .coreAdvantage .cardAllTwo {
   padding: 0 0 0 25%;
 }
+
 .coreAdvantage .card:nth-child(2) {
   margin-left: 8%;
 }
@@ -740,11 +718,13 @@ const NewsList = [
   overflow: hidden;
   font-weight: 700;
 }
+
 .coreAdvantageImg {
   width: 60px;
   height: 100%;
   margin: 25px 20px 25px 10px;
 }
+
 .coreAdvantage .bottomTitle {
   font-size: 14px;
   font-weight: 400;
@@ -752,13 +732,11 @@ const NewsList = [
   padding-right: 10px;
   color: #999999;
   text-overflow: ellipsis;
-  overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   display: -webkit-box;
   word-break: break-all;
-  display: inline-block;
 }
+
 /* --------------------解决方案-------------------- */
 
 .solution {
@@ -773,21 +751,25 @@ const NewsList = [
   color: #333333;
   font-weight: bold;
 }
+
 .solution h4 {
   font-size: 26px;
   color: #cccccc;
   margin-bottom: 60px;
   margin: 0;
 }
+
 .SolutionImg {
   width: 60px;
   height: 100%;
   margin: 45px 20px 45px;
 }
+
 .solution .cardAll {
   display: flex;
   margin-top: 70px;
 }
+
 .solution .card {
   width: 280px;
   height: 150px;
@@ -802,9 +784,11 @@ const NewsList = [
   word-break: break-all;
   display: inline-block;
 }
+
 .solution .card:nth-child(1) {
   margin: 0;
 }
+
 .solution .topTitle {
   font-size: 18px;
   color: #333333;
@@ -816,18 +800,20 @@ const NewsList = [
   display: -webkit-box;
   word-break: break-all;
 }
+
 /* @media only screen and (max-width: 500px) {
 } */
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1450px) {
   .SolutionImg {
     width: 60px !important;
     height: 100% !important;
-    margin: 45px 0 !important;
+    margin: 45px 20px 0 0 !important;
   }
+
   .solution .topTitle {
     font-size: 14px;
     color: #333333;
-    margin-top: 40px;
+    margin-top: 20px;
     text-overflow: ellipsis;
     overflow: hidden;
     -webkit-box-orient: vertical;
@@ -838,7 +824,7 @@ const NewsList = [
   }
 
   .solution .bottomTitle {
-    margin: 12px 20px 33px 0;
+    margin: 0 !important;
     font-size: 12px;
     font-weight: 400;
     color: #999999;
@@ -849,6 +835,36 @@ const NewsList = [
     display: -webkit-box;
     word-break: break-all;
     display: inline-block;
+  }
+
+  /*  */
+  .imgDivFirst{
+    padding: 5px 12px !important; 
+  }
+  .colLeftData {
+    font-size: 14px !important;
+    width: 100%;
+    white-space: pre-line;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10 !important; 
+    display: -webkit-box !important;
+    word-break: break-all;
+  }
+
+  .projectTitle {
+    height: 140px !important;
+    padding: 6px !important;
+  }
+
+  .projectValue {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5 !important;
+    display: -webkit-box;
+    word-break: break-all;
   }
 }
 
@@ -865,25 +881,30 @@ const NewsList = [
   word-break: break-all;
   display: inline-block;
 }
+
 /* -------------------我们的服务------------------------ */
 .ourServices {
   padding: 60px 20%;
 }
+
 .ourServices h1 {
   font-size: 40px;
   color: #333333;
   margin: 0;
   font-weight: bold;
 }
+
 .ourServices h4 {
   font-size: 26px;
   color: #cccccc;
   margin-bottom: 60px;
 }
+
 .ourServices .colDIv {
   width: 98%;
   height: 380px;
 }
+
 .ourServices .colLeft {
   width: 100%;
   height: 380px;
@@ -891,6 +912,7 @@ const NewsList = [
   background-repeat: no-repeat;
   cursor: pointer;
 }
+
 .ourServices .colLeftLine {
   width: 30px;
   height: 3px;
@@ -899,6 +921,7 @@ const NewsList = [
   position: relative;
   z-index: 1000;
 }
+
 .imgDivFirst {
   width: 100%;
   height: 185px;
@@ -915,6 +938,7 @@ const NewsList = [
   width: 100%;
   height: 185px;
 }
+
 .imgDivFirst .colLeftData {
   width: 100%;
   white-space: pre-line;
@@ -922,9 +946,10 @@ const NewsList = [
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
-  display: -webkit-box !important ;
+  display: -webkit-box !important;
   word-break: break-all;
 }
+
 .colLeftData {
   font-size: 14px;
   font-weight: 400;
@@ -936,10 +961,11 @@ const NewsList = [
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 10;
-  display: -webkit-box !important ;
+  -webkit-line-clamp: 11;
+  display: -webkit-box !important;
   word-break: break-all;
 }
+
 .ourServices .masking {
   width: 97% !important;
   height: 380px;
@@ -950,6 +976,7 @@ const NewsList = [
   z-index: 999;
   opacity: 0.5;
 }
+
 .ourServices .maskingTwo {
   width: 100%;
   height: 185px;
@@ -960,6 +987,7 @@ const NewsList = [
   z-index: 999;
   opacity: 0.5;
 }
+
 .colLeftTitle {
   color: #ffffff;
   font-size: 18px;
@@ -967,6 +995,7 @@ const NewsList = [
   z-index: 1000;
   font-weight: 700;
 }
+
 .colLeftData {
   font-size: 16px;
   font-weight: 400;
@@ -976,9 +1005,11 @@ const NewsList = [
   font-weight: 400;
   /* white-space: pre-line; */
 }
+
 .colLeft .colLeftData {
   width: 100%;
 }
+
 .colLeft img {
   width: 97%;
   overflow: hidden;
@@ -993,9 +1024,11 @@ const NewsList = [
   font-size: 18px;
   color: #333333;
 }
+
 :deep(.ourServices .ant-tabs-bar) {
   margin: 0;
 }
+
 /* ----------------------项目案例----------------------- */
 .projectCases {
   position: relative;
@@ -1025,6 +1058,7 @@ const NewsList = [
   padding: 15px 15px 20px 17px;
   border: 1px solid #ffffff;
 }
+
 .projectValue {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1033,12 +1067,15 @@ const NewsList = [
   display: -webkit-box;
   word-break: break-all;
 }
+
 h2 {
   font-weight: 700;
 }
+
 h3 {
   font-weight: 300;
 }
+
 .viewBtn {
   position: absolute;
   top: 90%;
@@ -1051,21 +1088,25 @@ h3 {
   width: 120px;
   height: 40px;
 }
+
 :deep(.projectCases .ant-tabs) {
   margin: 40px 20%;
   height: 100%;
   background: #191f2c;
   opacity: 0.8;
 }
+
 :deep(.projectCases .ant-tabs-nav-wrap) {
   width: 280px;
   padding: 28px 30px 0 20px;
   margin-bottom: 10px;
   color: #ffffff;
 }
+
 :deep(.projectCases .ant-tabs .ant-tabs-left-bar .ant-tabs-tab) {
   text-align: left;
 }
+
 :deep(.projectCases .ant-tabs-nav .ant-tabs-tab-active) {
   background-color: #294dce;
   color: #ffffff;
@@ -1084,6 +1125,7 @@ h3 {
   padding: 60px 20%;
   position: relative;
 }
+
 .news h1 {
   font-size: 40px;
   color: #333333;
@@ -1096,15 +1138,18 @@ h3 {
   color: #cccccc;
   margin: 0 0 60px 0;
 }
+
 .news .card {
   border-left: 1px solid #efefef;
   height: 100%;
   background-color: #ffffff;
   padding: 42px 25px;
 }
+
 .news .card:nth-child(1) {
   border: none;
 }
+
 .news .cardTitle {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1116,6 +1161,7 @@ h3 {
   height: 50px;
   margin: 20px 0 30px 0;
 }
+
 .news .cardDate {
   font-size: 14px;
   font-weight: 400;
