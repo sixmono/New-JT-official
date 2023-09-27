@@ -391,7 +391,7 @@ const tabsList = [
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "案例汉诺威 ",
+            title: "互动多媒体教学",
             data: "为学习者提供沉浸式、实时的互动体验，增强学习效果，拓宽知识领域。",
             span: 8,
           },
