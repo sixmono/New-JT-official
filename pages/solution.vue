@@ -20,9 +20,9 @@
           <h1>{{ change.h1 }}</h1>
           <h4>{{ change.h4 }}</h4>
           <a-row :gutter="30">
-            <a-col :span="changeItem.span" v-for="(changeItem, changeIndex) in change.changeListSon"
-              :key="changeIndex + 2">
-              <div class="changeCard">
+            <a-col :span="changeItem.span" class="aColTrue"
+              v-for="(changeItem, changeIndex) in change.changeListSon" :key="changeIndex + 2">
+              <div class="changeCard" id="changeCard">
                 <img :src="changeItem.img" class="changeCardImg" />
                 <div>
                   <h2 class="changeCardTitle">{{ changeItem.title }}</h2>
@@ -133,7 +133,7 @@ onMounted(() => {
     window.location.href =
       "https://jt-phone-1312712349.cos.ap-shanghai.myqcloud.com/index.html#/pages/solution/Consulting-Training"; //手机
   }
-  const activeIndex = sessionStorage.getItem("activeIndex");
+  const activeIndex: string | null = sessionStorage.getItem("activeIndex");
   // @ts-ignore
   const active = JSON.parse(activeIndex);
   if (activeIndex === null) {
@@ -144,26 +144,26 @@ onMounted(() => {
 });
 
 const title = ref(
-  "外部市场需求瞬息万变，内部企业协同日益复杂，企业数字化转型迫在眉睫，数字化方案需要不同学科的专业⼈员以整体系统视⻆审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全⾯提⾼企业综合竞争⼒，⼀般咨询公司并不具备数字化落地实施的能力和经验，这也导致企业寻找适合自己解决方案的沟通成本高、选择成本高、试错成本高。"
+  "外部市场需求瞬息万变，内部企业协同日益复杂，企业数字化转型迫在眉睫，数字化方案需要不同学科的专业⼈员以整体系统视⻆审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全⾯提⾼企业综合竞争⼒，⼀般咨询公司并不具备数字化落地实施的能力和经验，这也导致企业寻找适合自己解决方案的沟通成本高、选择成本高、试错成本高"
 );
 
 const handleChange = () => {
   if (activeKey.value === "1") {
     title.value =
-      "外部市场需求瞬息万变，内部企业协同日益复杂，企业数字化转型迫在眉睫，数字化方案需要不同学科的专业⼈员以整体系统视⻆审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全⾯提⾼企业综合竞争⼒，⼀般咨询公司并不具备数字化落地实施的能力和经验，这也导致企业寻找适合自己解决方案的沟通成本高、选择成本高、试错成本高。";
+      "外部市场需求瞬息万变，内部企业协同日益复杂，企业数字化转型迫在眉睫，数字化方案需要不同学科的专业⼈员以整体系统视⻆审视企业全价值链各个环节的问题，将先进管理经验与流程固化在企业之中，全⾯提⾼企业综合竞争⼒，⼀般咨询公司并不具备数字化落地实施的能力和经验，这也导致企业寻找适合自己解决方案的沟通成本高、选择成本高、试错成本高";
   } else if (activeKey.value === "2") {
     title.value =
       "数字化时代，跨时空多维度解决问题将成为常态，MR虚实融合技术成为人与物理世界沟通的最佳环境";
   } else if (activeKey.value === "3") {
     title.value =
-      "系统集成需求从单一系统趋向多个跨学科系统的融合、从相对确定的流程需求趋向综合场景需求，集成方案需融通IT/OT/MR等多个系统，利用数字化工具， 快速协同，做出更科学的决策判断， 以更高、更快、 更强的状态采取行动，更早地获取更多的收益。";
+      "系统集成需求从单一系统趋向多个跨学科系统的融合、从相对确定的流程需求趋向综合场景需求，集成方案需融通IT/OT/MR等多个系统，利用数字化工具， 快速协同，做出更科学的决策判断， 以更高、更快、 更强的状态采取行动，更早地获取更多的收益";
   } else {
     title.value =
-      "计算力需求驱动数据中心规模快速扩张，安全性和稳定性始终是企业业务正常运行的最基础保障，而海量增长的数据容量，给数据的存储和保护带来新的挑战。";
+      "计算力需求驱动数据中心规模快速扩张，安全性和稳定性始终是企业业务正常运行的最基础保障，而海量增长的数据容量，给数据的存储和保护带来新的挑战";
   }
 };
 
-const tabsList = [
+const tabsList = ref([
   {
     tab: "咨询.培训",
     key: "1",
@@ -176,21 +176,21 @@ const tabsList = [
             img: require("../static/SolutionView/coreAdvantage-third.png"),
             title: "数字化转型趋势",
             data:
-              "需明晰本企业发展的数字化趋势，明确数字化转型统⼀的关键点和战略认知，这些都需要聚合各类专业知识，导致数字化⽅案的沟通成本高。",
+              "需明晰本企业发展的数字化趋势，明确数字化转型统⼀的关键点和战略认知，这些都需要聚合各类专业知识，导致数字化⽅案的沟通成本高",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-second.png"),
             title: "数字化竞争逻辑",
             data:
-              "在与同业市场竞争中，已有的数字化投产⽐是否合理，能否切中要害还只是带来成本⽀出，数字化⽅案投⼊的选择成本⾼。",
+              "在与同业市场竞争中，已有的数字化投产⽐是否合理，能否切中要害还只是带来成本⽀出，数字化⽅案投⼊的选择成本⾼",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
             title: "数字化转型路径",
             data:
-              "很难判断最优数字化转型路径，难以系统化实施数字化转型，数字化战略创新的试错成本高。",
+              "很难判断最优数字化转型路径，难以系统化实施数字化转型，数字化战略创新的试错成本高",
             span: 8,
           },
         ],
@@ -302,21 +302,21 @@ const tabsList = [
             img: require("../static/SolutionView/solution-first.png"),
             title: "多维决策",
             data:
-              "用户对服务的及时性、准确性要求高，缺少融合多维度数据的解决方案，指挥决策效率低",
+              "⽤户对服务的及时性、准确性要求⾼，缺少融合多维度数据的解决⽅案，指挥决策效率低，专家分配难，作业协调难",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
             title: "流程教验",
             data:
-              "新手流程不熟，上手慢;人工巡检易漏检、错检，点位巡检只能确定到达巡检点，难以确保查验巡检点异常状况",
+              "新⼿流程不熟，熟⼿成本⾼，⼈⼯巡检易漏检、错检，点位巡检难以确保查验巡检点异常状况，⼈到确检难，管理覆盖难",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
             title: "虚实展示",
             data:
-              "展览、教学、研发的实景搭建成本高、耗时长，受时空限制，无法互动展示更多内容",
+              "受时空限制，⽆法互动展示更多内容，展览、教学、研发的实景搭建要求⾼、成本⾼、耗时⻓，新品导⼊难",
             span: 8,
           },
         ],
@@ -331,21 +331,21 @@ const tabsList = [
             img: require("../static/SolutionView/coreAdvantage-third.png"),
             title: "视觉巡检，杜绝漏检",
             data:
-              "AR、VR、MR 眼镜助力视觉巡检，精确识别每个细节，全方位无死角，确保巡检全面准确，守护安全，杜绝漏检。",
+              "AR、VR、MR眼镜助力视觉巡检，精确识别每个细节，全方位无死角，确保巡检全面准确，守护安全，杜绝漏检",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-first.png"),
             title: "视觉制造，按图施工 ",
             data:
-              "AR、VR、MR 眼镜助力视觉制造，图纸实时呈现，精确指导施工，提高工作效率，降低误差，确保工程质量。",
+              "AR、VR、MR 眼镜助力视觉制造，图纸实时呈现，精确指导施工，提高工作效率，降低误差，确保工程质量",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-fourth.png"),
             title: "视觉拣选，智慧物流",
             data:
-              "AR 、VR、MR眼镜助力视觉拣选，智慧物流升级，实时识别与追踪，提高拣选效率，降低错误率，优化仓库管理。",
+              "AR 、VR、MR眼镜助力视觉拣选，智慧物流升级，实时识别与追踪，提高拣选效率，降低错误率，优化仓库管理",
             span: 8,
           },
         ],
@@ -359,19 +359,19 @@ const tabsList = [
           {
             img: require("../static/SolutionView/coreAdvantage-second.png"),
             title: "远程指挥，多维联动",
-            data: "打破空间限制，提高指挥效率，实现多维度、实时的信息共享与协同。",
+            data: "打破空间限制，提高指挥效率，实现多维度、实时的信息共享与协同",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
             title: "远程检修，专家指导",
-            data: "作业流程更加规范，作业效果更加显著，作业效率大大提高。",
+            data: "作业流程更加规范，作业效果更加显著，作业效率大大提高",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
             title: "远程诊断，专家会诊",
-            data: "于千里之外不必到场即可救人，加速生命时间线，减小病人死亡危险。",
+            data: "于千里之外不必到场即可救人，加速生命时间线，减小病人死亡危险",
             span: 8,
           },
         ],
@@ -386,20 +386,20 @@ const tabsList = [
             img: require("../static/SolutionView/solution-third.png"),
             title: "数字展陈，时空互动",
             data:
-              "通过数字化技术和互动体验，让参观者在虚拟与现实之间穿梭，感受历史与未来的碰撞。",
+              "通过数字化技术和互动体验，让参观者在虚拟与现实之间穿梭，感受历史与未来的碰撞",
             span: 8,
           },
           {
             img: require("../static/SolutionView/solution-first.png"),
-            title: "案例汉诺威 ",
-            data: "为学习者提供沉浸式、实时的互动体验，增强学习效果，拓宽知识领域。",
+            title: "互动多媒体教学 ",
+            data: "为学习者提供沉浸式、实时的互动体验，增强学习效果，拓宽知识领域",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
             title: "数字孪生",
             data:
-              "通过构建工业元宇宙，实现虚拟与现实的互动展示，为观众带来沉浸式的参观体验。",
+              "通过构建工业元宇宙，实现虚拟与现实的互动展示，为观众带来沉浸式的参观体验",
             span: 8,
           },
         ],
@@ -445,21 +445,21 @@ const tabsList = [
             img: require("../static/SolutionView/coreAdvantage-first.png"),
             title: "需求场景复杂",
             data:
-              "仅靠个别专家已经很难满⾜⽤户的多维度场景化需求，对解决⽅案的专业要求⾼、时间成本⾼，⽤户往往不具备这样的多维度综合能⼒。",
+              "仅靠个别专家已经很难满⾜⽤户的多维度场景化需求，对解决⽅案的专业要求⾼、时间成本⾼，⽤户往往不具备这样的多维度综合能⼒",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
             title: "数字化成本高",
             data:
-              "各部门职能、业务需求、技术要求不同，产品结构类型繁多，软硬件接入种类多，运行环境复杂，各个专业部门需⼤量专业性的沟通协调，数字化综合场景落地难。",
+              "各部门职能、业务需求、技术要求不同，产品结构类型繁多，软硬件接入种类多，运行环境复杂，各个专业部门需⼤量专业性的沟通协调，数字化综合场景落地难",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-five.png"),
             title: "数据洞察难",
             data:
-              "设备运行场景、人员知识经验、管理层关键决策等大量信息，在系统流程中传递，海量数据下，科学适用的的数字模型少，效率低，很难形成创新洞察力。",
+              "设备运行场景、人员知识经验、管理层关键决策等大量信息，在系统流程中传递，海量数据下，科学适用的的数字模型少，效率低，很难形成创新洞察力",
             span: 8,
           },
         ],
@@ -560,20 +560,20 @@ const tabsList = [
             img: require("../static/SolutionView/coreAdvantage-first.png"),
             title: "技术要求高",
             data:
-              "数据中⼼的建造专业性要求⾼，建设过程中需要引入多种跨学科技术和工具，⼀旦发⽣问题，影响巨⼤，新旧系统的更新接⼊更是对施⼯服务提出⾮常⾼的要求。",
+              "数据中⼼的建造专业性要求⾼，建设过程中需要引入多种跨学科技术和工具，⼀旦发⽣问题，影响巨⼤，新旧系统的更新接⼊更是对施⼯服务提出⾮常⾼的要求",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-fourth.png"),
             title: "管理要求高",
             data:
-              "数据中心是重要的信息资产库，定制化需求日益明显，而定制同步会带来管理难度，简便有效的安全防护和管理措施是非常必要的。",
+              "数据中心是重要的信息资产库，定制化需求日益明显，而定制同步会带来管理难度，简便有效的安全防护和管理措施是非常必要的",
             span: 8,
           },
           {
             img: require("../static/SolutionView/coreAdvantage-five.png"),
             title: "能耗要求高",
-            data: "海量数据运算导致数据中心能耗大。",
+            data: "海量数据运算导致数据中心能耗大",
             span: 8,
           },
         ],
@@ -641,20 +641,20 @@ const tabsList = [
           {
             title: "可靠",
             data:
-              "依托多年的数据中⼼咨询、设计、实施经验，实现数据中⼼的定制化建设，完善的施⼯⽅案和应急处置措施，确保数据中心运维智能化。",
+              "依托多年的数据中⼼咨询、设计、实施经验，实现数据中⼼的定制化建设，完善的施⼯⽅案和应急处置措施，确保数据中心运维智能化",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
           {
             title: "定制",
             data:
-              "按需定制，微模块和新旧系统搭配后成本最优，智能监管系统让系统管理更简单。",
+              "按需定制，微模块和新旧系统搭配后成本最优，智能监管系统让系统管理更简单",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
           {
             title: "绿色",
-            data: "从设计咨询到维修整改，成熟多样的节能措施让绿色节能变得更简单。",
+            data: "从设计咨询到维修整改，成熟多样的节能措施让绿色节能变得更简单",
             img: require("../static/SolutionView/位图@2x(4).png"),
             span: 8,
           },
@@ -662,15 +662,13 @@ const tabsList = [
       },
     ],
   },
-];
+]);
 
 onUnmounted(() => {
   sessionStorage.removeItem("activeIndex");
 });
 </script>
 <style scoped>
-.container {}
-
 /* ----------------------------图片--------------------- */
 .headerTitle {
   position: relative;
@@ -722,7 +720,15 @@ h4 {
 
 /* ---------------问题与挑战------------ */
 .change {
-  padding: 60px 20%;
+  padding: 40px 20%;
+  position: relative;
+  height: 480px;
+}
+.change:last-child{
+  padding: 0 20%;
+}
+.change h4 {
+  margin-bottom: 60px;
 }
 
 .change:nth-child(2n + 1) {
@@ -733,13 +739,80 @@ h4 {
   background: #ffffff;
 }
 
+@keyframes animations {
+  0% {
+    position: absolute;
+    left: 33%;
+    z-index: 99;
+  }
+
+  100% {
+    height: 240px;
+    z-index: 700;
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+}
+
+.ant-row {
+  display: flex !important;
+  position: relative;
+}
+
+.aColTrue {
+  margin: auto;
+}
+
+.aColTrue:nth-child(1) {
+  transition: all 1.8s ease-in;
+  position: absolute;
+  z-index: 20;
+}
+
+.aColTrue:nth-child(2) {
+  transition: all 1.8s ease-in !important;
+}
+
+.aColTrue:nth-child(3) {
+  transition: all 1.8s ease-in;
+  position: absolute;
+  right: 0 !important;
+  z-index: 20;
+}
+
+.aColTrue:nth-child(1):hover {
+  z-index: 700;
+  position: absolute;
+  width: 100%;
+}
+
+.aColTrue:nth-child(2):hover {
+  animation: animations 1.8s ease-in forwards;
+}
+
+.aColTrue:nth-child(3):hover {
+  z-index: 700;
+  position: absolute;
+  width: 100%;
+}
+
+.aColTrue:nth-child(3):hover .aColTrue:nth-child(3) {
+  position: absolute;
+  right: 0 !important;
+}
+
+.aColTrue:hover .changeCard {
+  box-shadow: 10px 10px 10px #cccccc;
+}
+
 .changeCard {
   display: flex;
   width: 100%;
   height: 180px;
   background: #ffffff;
   border: 1px solid #ededed;
-  margin: 60px 0 0 0;
+  /* box-shadow: 10px 10px 10px; */
 }
 
 .changeCardTitle {
@@ -750,7 +823,7 @@ h4 {
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   display: -webkit-box !important;
   word-break: break-all;
 }
@@ -764,27 +837,123 @@ h4 {
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
   display: -webkit-box !important;
   word-break: break-all;
 }
 
 .changeCardImg {
   padding: 40px 20px 50px;
+  height: 100%;
 }
 
-/* ------------------------解决方案----------------------- */
+/* --------------1------------------ */
+.solutionTwo {
+  padding: 80px 20%;
+  background: #ffffff;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+.SolutionCardTwoSon {
+  height: 240px;
+  position: absolute;
+  background: red;
+  transition: all 1s linear;
+  width: 90%;
+  opacity: 0;
+  z-index: 999;
+}
+
+.solutionCardTwo {
+  text-align: center;
+  height: 240px;
+  background: #ffffff;
+  border: 1px solid #ededed;
+  transition: all 1s linear;
+}
+
+.aColSolutionCardTwo {
+  transition: all 1s linear;
+}
+
+.aColSolutionCardTwo:hover .solutionCardTwo {
+  width: 100%;
+  background: silver;
+  z-index: 999;
+  float: left;
+}
+
+/* .SolutionCardTwoSon:hover {
+  position: absolute;
+  left: 0;
+}
+.SolutionCardTwoSon:hover ~ .aColSolutionCardTwo {
+  position: absolute;
+  height: 240px;
+  width: 400%;
+  color: red;
+  z-index: 990;
+} */
+.solutionCardTitleTwo {
+  font-size: 18px;
+  color: #333333;
+}
+
+.solutionCardDataTwo {
+  padding: 20px 30px 35px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999999;
+}
+
+/* ------------------------2----------------------- */
 .solution {
   padding: 60px 20%;
   background: #f6f6f6;
 }
+
+.aColSolutionCard {
+  left: 0;
+  z-index: 99;
+  transition: all 2s;
+}
+
+.aColSolutionCard:hover {}
 
 .solutionCard {
   text-align: center;
   height: 240px;
   background: #ffffff;
   border: 1px solid #ededed;
-  overflow: hidden;
+  transition: all 1s linear;
+}
+
+/*
+.SolutionCardSon {
+  height: 240px;
+  position: absolute;
+  z-index: 800;
+  background: red;
+  transition: all 1s linear;
+} */
+
+.aColSolutionCard:hover {
+  /* text-align: center; */
+  /* height: 240px;
+  background: #ffffff;
+  z-index: 700;
+  position: absolute;
+  width: 100%; */
+  /* margin: 0 15px;
+  position: relative;
+  width: 100%;
+  z-index: 998;*/
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  /* transform: scale(1.1); */
 }
 
 .solutionCardTitle {
@@ -799,38 +968,22 @@ h4 {
   color: #999999;
 }
 
-/* -------------------------------- */
-.solutionTwo {
-  padding: 60px 20%;
-  background: #ffffff;
-  overflow: hidden;
-}
-
-.solutionCardTwo {
-  text-align: center;
-  height: 240px;
-  background: #ffffff;
-  border: 1px solid #ededed;
-  overflow: hidden;
-}
-
-.solutionCardTitleTwo {
-  font-size: 18px;
-  color: #333333;
-}
-
-.solutionCardDataTwo {
-  padding: 20px 30px 35px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #999999;
-}
-
-/* 3 */
+/*---------- 3 --------- */
 .solutionThree {
   padding: 60px 20%;
   background: #ffffff;
   overflow: hidden;
+}
+
+.aColSolutionCardThree {
+  position: relative;
+  transition: all 2s;
+}
+
+.aColSolutionCardThree:hover {
+  transform: scale(1.1);
+  width: 100%;
+  z-index: 999;
 }
 
 .solutionCardThree {
@@ -859,15 +1012,53 @@ h4 {
   background: #f6f6f6;
 }
 
+.aColEffect {
+  transition: all 2s;
+}
+
 .effectsCard {
   width: 100%;
   height: 160px;
   background: #ffffff;
   border: 1px solid #ededed;
-  margin: 60px 0 0 0;
   position: relative;
   padding: 20px 0;
   overflow: hidden;
+}
+
+.aColEffect:nth-child(1) {
+  transition: all 1s;
+}
+
+.aColEffect:nth-child(2) {
+  transition: all 1s;
+  position: relative;
+  margin: auto;
+}
+
+.aColEffect:nth-child(3) {
+  transition: all 1s linear;
+  margin: 0 0 0 auto;
+}
+
+.aColEffect:nth-child(1):hover {
+  /* animation: animations 2s forwards; */
+  z-index: 700;
+  position: absolute;
+  width: 100%;
+}
+
+.aColEffect:nth-child(2):hover {
+  animation: animations 2s forwards;
+}
+
+.aColEffect:nth-child(3):hover {
+  /* animation: animations 2s forwards; */
+  z-index: 700;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  margin: 0 0 0 auto;
 }
 
 .effectsTitle {
@@ -966,7 +1157,7 @@ h4 {
   }
 }
 
-@media only screen and (max-width: 1450px) {
+@media only screen and (max-width: 1460px) {
 
   /* 问题与挑战 */
   .headerBody {
@@ -987,74 +1178,27 @@ h4 {
     width: 850px;
   }
 
-  /* 问题与挑战 */
-  .changeCard {
-    height: 200px;
-  }
-
-  .changeCardTitle {
-    margin-top: 0;
-    font-size: 16px;
-    color: #333333;
-    padding: 0 10px 0 0;
-  }
-
-  .changeCardData {
-    font-size: 12px;
-    font-weight: 400;
-    color: #999999;
-    line-height: 22px;
-    padding-right: 6px;
-    text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 8;
-  display: -webkit-box !important;
-  word-break: break-all;
-  }
-
-  .changeCardImg {
-    padding: 40px 10px 50px;
-  }
-
   /* ----------------------1--------------------- */
-  .solutionCard {
-    height: 220px;
-  }
-  .solutionCardTitle{
-    font-size: 16px;
-  }
   .solutionCardData {
-    font-size: 12px;
+    padding: 20px 40px 35px;
+    font-size: 14px;
     font-weight: 400;
     color: #999999;
   }
 
   /* -----------------------------2--------------------- */
-  .solutionCardTwo {
-    height: 220px;
-  }
-  .solutionCardTitleTwo{
-    font-size: 16px;
-  }
   .solutionCardDataTwo {
-    font-size: 12px;
+    padding: 20px 30px 35px;
+    font-size: 14px;
     font-weight: 400;
     color: #999999;
   }
 
   /* ------------------------3------------------------ */
-  .solutionCardThree {
-    height: 220px;
-  }
-  .solutionCardTitleThree{
-    font-size: 16px;
-  }
   .solutionCardDataThree {
-    font-size: 12px;
-    font-weight: 400;
-    color: #999999;
+    font-size: 14px;
   }
+
   /* 效果和收益 */
   .effectsCard {
     width: 100%;
@@ -1090,4 +1234,9 @@ h4 {
     margin: 10px 10px 0 0;
     font-size: 12px !important;
   }
-}</style>
+}
+
+.ant-modal-footer>.ant-btn {
+  display: none !important;
+}
+</style>

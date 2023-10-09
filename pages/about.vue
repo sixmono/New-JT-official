@@ -97,11 +97,11 @@
     </div>
     <!-- 公司成就 -->
     <div class="achievement">
-      <h1>业务分类</h1>
+      <h1>公司成就</h1>
       <h4>Company Achievements</h4>
       <a-row :gutter="20" style="margin-bottom: 20px">
         <a-col
-          :span="8"
+          :span="6"
           v-for="(achievementItem, achievementIndex) in achievementList"
           :key="achievementIndex"
         >
@@ -288,6 +288,11 @@ const certificateList = [
 ];
 
 const achievementList = [
+{
+    img: require("../static/AboutView/about-third.png"),
+    title: "咨询.培训",
+    data: `与⻄⻔⼦中国研究院、中⼤咨询等国内外顶尖咨询公司深度合作，开展相应的咨询和共创课程，节省⽤户寻找各类业专家的时间，顶级专家⻬聚⼀堂为⽤户打造可落地的数字化⽅案`,
+  },
   {
     img: require("../static/AboutView/about-first.png"),
     title: "AR/VR/MR眼镜",
@@ -543,7 +548,6 @@ const customersList = [
 .achievement .card {
   text-align: center;
   width: 100%;
-  padding: 0 34px;
 }
 /* --------------------------我们的客户------------------------ */
 .customers {

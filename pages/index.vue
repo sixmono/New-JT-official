@@ -56,7 +56,7 @@
       <h4>Core advantages</h4>
       <div class="cardAll">
         <a-row :gutter="100">
-          <a-col :span="11" v-for="(cardItem, cardIndex) in cardList" :key="cardIndex">
+          <a-col :span="12" v-for="(cardItem, cardIndex) in cardList" :key="cardIndex">
             <div style="display: flex; background-color: #ffffff">
               <img :src="cardItem.img" class="coreAdvantageImg" />
               <div>
@@ -72,7 +72,7 @@
       </div>
       <div class="cardAllTwo">
         <a-row :gutter="100">
-          <a-col :span="9" v-for="(cardItem, cardIndex) in cardList2" :key="cardIndex">
+          <a-col :span="10" v-for="(cardItem, cardIndex) in cardList2" :key="cardIndex">
             <div style="display: flex; background-color: #ffffff">
               <img :src="cardItem.img" class="coreAdvantageImg" />
               <div>
@@ -231,9 +231,11 @@ const activeKeyList = ref("1");
 // };
 const router = new useRouter();
 const handleChange = (activeKey) => {
+  console.log(typeof activeKey);
   console.log(activeKey);
 };
 const handleClick = (activeKey) => {
+  console.log(activeKey);
   sessionStorage.setItem("activeIndex", JSON.stringify(activeKey));
 };
 // const handleClick = () => {
@@ -261,13 +263,13 @@ const handleClick = (activeKey) => {
 const cardList = [
   {
     img: require("../static/indexView/coreAdvantage-first.png"),
-    title: "专业：全流程最优数字化方案",
-    data: "从咨询到落地，与西门子中国研究院、中大咨询等国内外顶尖咨询公司合作。",
+    title: "专业：全流程最优数字化解决方案",
+    data: "我们与西门子中国研究院、中大咨询等国内外顶尖咨询公司合作，为企业提供从数字化咨询到项目实施的一站式方案",
   },
   {
     img: require("../static/indexView/coreAdvantage-fourth.png"),
     title: "降本：利旧纳新",
-    data: "自研物联数字系统支持接入旧设备、旧系统，降本的同时避免受制于供应商。",
+    data: "物联网设备自主定制研发，支持接入旧设备、旧系统，降本的同时避免受制于供应商",
   },
 ];
 
@@ -275,12 +277,12 @@ const cardList2 = [
   {
     img: require("../static/indexView/coreAdvantage-third.png"),
     title: "省时：高效部署",
-    data: "标准接口、快速开发，部署周期短，开放式云平台无缝整合第三方产品。",
+    data: "标准接口、快速开发，部署周期短，开放式云平台无缝整合第三方产品",
   },
   {
     img: require("../static/indexView/coreAdvantage-second.png"),
     title: "放心：服务全国",
-    data: "覆盖全国的专业团队，多个全球500强企业案例。",
+    data: "覆盖全国的专业团队，多个全球500强企业案例",
   },
 ];
 
@@ -349,7 +351,7 @@ const ourServicesList = [
         span: "10",
         title: "远程协作类",
         data:
-          "人和人分离，专家在后台远程支持。使用者可与后台人员互动，后台人员以现场人员第一视角查看现场情况和接入的第三方数据",
+          "人与人分离，后台专家远程支持，可与现场互动并获取第三方数据",
         img: require("../static/indexView/index-ourServices-4.jpg"),
       },
       {
@@ -381,7 +383,7 @@ const ourServicesList = [
         span: "24",
         title: "电气火灾超前预警处置平台",
         data:
-          "电气火灾数量在火灾占比第一，如何超前期预警火灾是重中之重。平台在短时间内根据有限的信息，针对不确定的需求，快速分派有限的资源，做出最优决策，对处置行为进行指导和监督，事后复盘流程再造，形成闭环管理",
+          "电气火灾占比最高，提前预警至关重要。紧急情况发生后，需要迅速分派资源、做出最优决策，并监督处置行动，以及优化事后流程。通过极早期电气火灾预警，形成了闭环管理，包括预警、决策分析、指导监督",
         img: require("../static/indexView/index-ourServices-6.jpg"),
       },
       {
@@ -405,7 +407,7 @@ const ourServicesList = [
       {
         span: "10",
         title: "配电系统",
-        data: `UPS系统、列头配电柜、电气配电、发电机系统、0.4KV开关柜系统、变压器、10KV开关柜系统`,
+        data: `UPS、发电机、电气柜……`,
         img: require("../static/indexView/index-ourServices-8.jpg"),
       },
       {
@@ -433,19 +435,19 @@ const projectList = [
     card: [
       {
         title: "背景：",
-        value: `工厂大部分检修维流程项目使用外包的方式，对工作人员的安全保障手段目前采用人工安全审核与安全作业指导的方式。`,
+        value: `工厂大部分检修维流程项目使用外包的方式，对工作人员的安全保障手段目前采用人工安全审核与安全作业指导的方式`,
       },
       {
         title: "痛点：",
-        value: `经过咨询发现，目前工厂对有限空间下的作业以及其他特种作业基本没有智能化的监察手段，在发生危险的第一时间没有及时的解决办法。`,
+        value: `经过咨询发现，目前工厂对有限空间下的作业以及其他特种作业基本没有智能化的监察手段，在发生危险的第一时间没有及时的解决办法`,
       },
       {
         title: "方案：",
-        value: `采用监理机器人伴随的方案，将合规与智能化结合，使用深度学习与知识图谱等手段，智能化作业过程，随时溯源。`,
+        value: `采用监理机器人伴随的方案，将合规与智能化结合，使用深度学习与知识图谱等手段，智能化作业过程，随时溯源`,
       },
       {
         title: "益处：",
-        value: `智能化系统，提高工作人员安全性，避免造成人生安全损失，提高了检维修效率。`,
+        value: `智能化系统，提高工作人员安全性，避免造成人生安全损失，提高了检维修效率`,
       },
     ],
   },
@@ -456,19 +458,19 @@ const projectList = [
     card: [
       {
         title: "背景：",
-        value: `急救中心院前救治需要数字化手段提高救治率。`,
+        value: `急救中心院前救治需要数字化手段提高救治率`,
       },
       {
         title: "痛点：",
-        value: `随车医生遇到部分紧急病情的外援手段单一不直观；无法同时监控多个诊疗器械导致效率低；车载摄像头辅助远程监控视角死角多，效果不佳。`,
+        value: `随车医生遇到部分紧急病情的外援手段单一不直观；无法同时监控多个诊疗器械导致效率低；车载摄像头辅助远程监控视角死角多，效果不佳`,
       },
       {
         title: "方案：",
-        value: `采用AR眼镜和无线传输。`,
+        value: `采用AR眼镜和无线传输`,
       },
       {
         title: "益处：",
-        value: `即插即用，建设周期短，实现第一视角外设接入和的互动会诊。`,
+        value: `即插即用，建设周期短，实现第一视角外设接入和的互动会诊`,
       },
     ],
   },
@@ -479,19 +481,19 @@ const projectList = [
     card: [
       {
         title: "背景：",
-        value: `某世界知名的银行数据中心需进行改造，新旧智能化系统并存，部分系统已超10年，部分旧系统已停产需更新，部分旧系统仍需接入新系统。`,
+        value: `某世界知名的银行数据中心需进行改造，新旧智能化系统并存，部分系统已超10年，部分旧系统已停产需更新，部分旧系统仍需接入新系统`,
       },
       {
         title: "痛点：",
-        value: `必须确保不断电不断网，涉及各类新旧子系统和不同品牌，施工和调试难度极大。`,
+        value: `必须确保不断电不断网，涉及各类新旧子系统和不同品牌，施工和调试难度极大`,
       },
       {
         title: "方案：",
-        value: `整体规划，连续几天24小时轮班作业，项目实施精细到分钟，对改造涉及供配电系统、UPS、综合布线、精密空调、环境控制系统、自动化控制系统等每个子系统都设计了多种实施和应急预案。`,
+        value: `整体规划，连续几天24小时轮班作业，项目实施精细到分钟，对改造涉及供配电系统、UPS、综合布线、精密空调、环境控制系统、自动化控制系统等每个子系统都设计了多种实施和应急预案`,
       },
       {
         title: "益处：",
-        value: `我司在规定时间内零误差超前完成项目。`,
+        value: `我司在规定时间内零误差超前完成项目`,
       },
     ],
   },
@@ -502,19 +504,19 @@ const projectList = [
     card: [
       {
         title: "背景：",
-        value: `电气柜火灾造成停电停产，领导担责，灾后投入大量人力巡检，工作强度大，人力成本高。`,
+        value: `电气柜火灾造成停电停产，领导担责，灾后投入大量人力巡检，工作强度大，人力成本高`,
       },
       {
         title: "痛点：",
-        value: `烟感报警只能提前几分钟预警电气火灾，救援时间紧；巡检人员技术参差不齐，无法确保及时准确处置电气火灾；人工巡检记录不够准确完整。`,
+        value: `烟感报警只能提前几分钟预警电气火灾，救援时间紧；巡检人员技术参差不齐，无法确保及时准确处置电气火灾；人工巡检记录不够准确完整`,
       },
       {
         title: "方案：",
-        value: `采用多种传感器，通过AI算法模型，提前几天发现火灾隐患并预警，并将应急预案通知到相关处置人员，接收人按照方案快速执行即可。`,
+        value: `采用多种传感器，通过AI算法模型，提前几天发现火灾隐患并预警，并将应急预案通知到相关处置人员，接收人按照方案快速执行即可`,
       },
       {
         title: "益处：",
-        value: `AI智能提前避险火灾，应急指挥辅助决策，变被动受损为主动巡检。`,
+        value: `AI智能提前避险火灾，应急指挥辅助决策，变被动受损为主动巡检`,
       },
     ],
   },
@@ -523,14 +525,14 @@ const projectList = [
 const NewsList = [
   {
     date: "2023-07-10",
-    title: "疆通科技数字孪生展陈成果亮相2023世界人工智能大会。",
+    title: "疆通科技数字孪生展陈成果亮相2023世界人工智能大会",
     img: require("../static/indexView/news-second.png"),
     href:
       "https://mp.weixin.qq.com/s?__biz=MzIwMDg4MDQyMA==&mid=2247486101&idx=1&sn=8454250002409a838eeaaf7bc47c4cd1&chksm=96f732dea180bbc8cfc792d0b0e53e52aa3869dbe6f886b815e403b485b04754ca58964d4ead#rd",
   },
   {
     date: "2023-06-11",
-    title: "疆通与行业高端咨询公司深度合作。",
+    title: "疆通与行业高端咨询公司深度合作",
     img: require("../static/indexView/news-first.png"),
     href:
       "https://mp.weixin.qq.com/s?__biz=MzIwMDg4MDQyMA==&mid=2247486127&idx=1&sn=561f8b6ac6ae5dcdf461dd158f7c6808&chksm=96f732e4a180bbf2cd5355ec26ccd3997d1165e2e4d8e7da7a067cbd7e54a60570afe767b53a#rd",
