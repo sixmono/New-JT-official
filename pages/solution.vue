@@ -1180,7 +1180,7 @@ h4 {
 
   /* ----------------------1--------------------- */
   .solutionCardData {
-    padding: 20px 40px 35px;
+    padding: 5px 40px 35px;
     font-size: 14px;
     font-weight: 400;
     color: #999999;

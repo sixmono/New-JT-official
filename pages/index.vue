@@ -17,7 +17,7 @@
           <!-- muted是否静音 -->
           <video autoplay loop :muted="true" width="100%" id="video" ref="video">
             <source
-              src="https://sekiro-1312712349.cos.ap-shanghai.myqcloud.com/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%91.mp4" />
+              src="https://jt-video-1312712349.cos.ap-shanghai.myqcloud.com/3d800667944a60e52a85768559fe4ca8_raw.mp4" />
           </video>
         </div>
       </div>
